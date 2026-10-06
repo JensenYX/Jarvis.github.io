@@ -1452,7 +1452,8 @@ button {
 }
 .stat__bar {
   position: relative;
-  display: block;
+  display: flex;
+  align-items: center;
   height: 19px;
   border-radius: 6px;
   background: var(--bg-elev);
@@ -1482,7 +1483,8 @@ button {
   font-size: 0.66rem;
   font-style: normal;
   font-weight: 600;
-  line-height: 19px;
+  line-height: 1;
+  white-space: nowrap;
   color: #fff;
 }
 .stat__bar--base i {
