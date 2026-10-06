@@ -141,6 +141,7 @@ async function mount(name, loader) {
 async function init() {
   setupNav();
   await Promise.all([
+    mount("hero", () => import("./hero.js")),
     mount("theater", () => import("./theater.js")),
     mount("figures", () => import("./figures.js")),
     mount("charts", () => import("./charts.js")),

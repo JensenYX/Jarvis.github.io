@@ -295,8 +295,8 @@ button {
   color: var(--ink);
 }
 .topnav__brand img {
-  width: 30px;
-  height: auto;
+  width: 24px;
+  height: 24px;
 }
 .topnav.is-dark .topnav__brand {
   color: var(--night-ink);
@@ -400,26 +400,33 @@ button {
 }
 .hero__art {
   position: relative;
-  width: min(300px, 70vw);
-  margin: 0 auto 1.1rem;
+  width: min(660px, 100%);
+  margin: 0 auto 1.5rem;
 }
-.hero__art::before {
-  content: "";
-  position: absolute;
-  inset: 12% 6% 4%;
-  border-radius: 50%;
-  background: radial-gradient(closest-side, rgba(59, 125, 221, 0.28), rgba(124, 92, 191, 0.12) 60%, transparent);
-  filter: blur(18px);
-  z-index: 0;
-}
-.hero__penguin {
+
+/* The hero scene: the voice orb on the left, the Task Ledger it hands work to
+   on the right. js/hero.js flies the operation tokens and updates the rows. */
+.scene {
   position: relative;
-  z-index: 1;
-  width: 100%;
-  height: auto;
-  animation: penguin-float 7s ease-in-out infinite;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 300px;
+  align-items: center;
+  gap: 1.6rem;
+  text-align: left;
 }
-@keyframes penguin-float {
+.scene__voice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+.orb {
+  width: 228px;
+  height: 228px;
+  overflow: visible;
+  animation: scene-float 7s ease-in-out infinite;
+}
+@keyframes scene-float {
   0%,
   100% {
     transform: translateY(0);
@@ -428,70 +435,393 @@ button {
     transform: translateY(-6px);
   }
 }
+.orb__glow {
+  transform-box: fill-box;
+  transform-origin: center;
+  opacity: 0.85;
+  transition: opacity 600ms ease, transform 600ms var(--ease-out);
+}
+.orb__ripples {
+  opacity: 0.55;
+  transition: opacity 600ms ease;
+}
+.orb__ripples circle {
+  stroke: rgba(79, 134, 234, 0.55);
+  stroke-width: 1.4;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orb-ripple 4.8s cubic-bezier(0.2, 0.6, 0.3, 1) infinite;
+}
+.orb__ripples circle:nth-child(2) {
+  animation-delay: -1.6s;
+}
+.orb__ripples circle:nth-child(3) {
+  animation-delay: -3.2s;
+}
+@keyframes orb-ripple {
+  from {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  to {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+/* A small wave while listening, a full one while speaking. */
+.orb__wave {
+  transform-box: view-box;
+  transform-origin: 120px 120px;
+  transform: scaleY(0.55);
+  transition: transform 600ms var(--ease-out);
+}
+.orb__wave rect {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: orb-bar var(--t, 1s) ease-in-out var(--d, 0s) infinite alternate;
+}
+@keyframes orb-bar {
+  from {
+    transform: scaleY(0.3);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+.scene.is-speaking .orb__wave {
+  transform: scaleY(1.05);
+}
+.scene.is-speaking .orb__glow {
+  opacity: 1;
+  transform: scale(1.06);
+}
+.scene.is-speaking .orb__ripples {
+  opacity: 1;
+}
 
-/* Operation tags floating around the mascot: the vocabulary of the harness. */
-.float-chip {
-  position: absolute;
-  z-index: 2;
+.scene__said {
+  position: relative;
+  z-index: 1;
   display: inline-flex;
   align-items: center;
-  gap: 0.4em;
-  padding: 0.32em 0.75em;
+  gap: 0.55rem;
+  max-width: 100%;
+  margin: -1.9rem 0 0;
+  padding: 0.4rem 0.9rem 0.4rem 0.42rem;
   border-radius: 9999px;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  font-weight: 600;
-  letter-spacing: 0.01em;
+  border: 1px solid var(--rule);
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 14px 30px -16px rgba(31, 95, 209, 0.5);
+  font-family: var(--font-display);
+  font-size: 0.9rem;
+  color: var(--ink);
   white-space: nowrap;
-  color: #fff;
-  box-shadow: 0 8px 22px rgba(10, 46, 110, 0.18);
-  animation: chip-bob 6s ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
+  transition: opacity 220ms ease, transform 220ms ease;
 }
-.float-chip b {
+.scene__said b {
+  flex: 0 0 auto;
+  padding: 0.32em 0.65em;
+  border-radius: 9999px;
+  background: #eef2f8;
+  color: var(--ink-soft);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
   font-weight: 700;
-  opacity: 0.85;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  transition: background 300ms ease, color 300ms ease;
 }
-.float-chip--new {
-  background: var(--op-new);
-  top: 14%;
-  left: -38%;
-  --delay: -1s;
+.scene__said[data-who="Jarvis"] b {
+  background: var(--grad-brand);
+  color: #fff;
 }
-.float-chip--refine {
-  background: var(--op-refine);
-  top: 50%;
-  left: -52%;
-  --delay: -3s;
+.scene__said span {
+  font-style: italic;
 }
-.float-chip--save {
-  background: var(--op-save);
-  top: 8%;
-  right: -44%;
-  --delay: -2s;
+
+.scene__ledger {
+  padding: 0.8rem 0.8rem 0.75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(10, 46, 110, 0.09);
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow:
+    0 30px 70px -34px rgba(31, 95, 209, 0.5),
+    0 2px 12px rgba(10, 46, 110, 0.06);
+  -webkit-backdrop-filter: blur(10px) saturate(1.3);
+  backdrop-filter: blur(10px) saturate(1.3);
 }
-.float-chip--cancel {
-  background: var(--op-cancel);
-  top: 44%;
-  right: -50%;
-  --delay: -4s;
+.scene__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 0.25rem 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.64rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
 }
-.float-chip--done {
-  background: #fff;
+.scene__live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
   color: var(--j-teal);
-  border: 1px solid rgba(20, 153, 138, 0.35);
-  bottom: 4%;
-  right: -30%;
-  --delay: -5s;
+  letter-spacing: 0.1em;
 }
-@keyframes chip-bob {
-  0%,
-  100% {
-    transform: translateY(0);
+.scene__live::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  animation: live-dot 2s ease-out infinite;
+}
+@keyframes live-dot {
+  from {
+    box-shadow: 0 0 0 0 rgba(20, 153, 138, 0.45);
   }
-  50% {
-    transform: translateY(-7px);
+  to {
+    box-shadow: 0 0 0 7px rgba(20, 153, 138, 0);
   }
+}
+.scene__rows {
+  display: grid;
+  gap: 0.38rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  transition: opacity 400ms ease;
+}
+.srow {
+  --c: #3b7ddd;
+  --halo: rgba(59, 125, 221, 0.18);
+  --chip: #e3edfd;
+  --chip-ink: #1f5fd1;
+  --bar: var(--grad-brand);
+  position: relative;
+  display: grid;
+  grid-template-columns: 8px minmax(0, 1fr) auto;
+  column-gap: 0.6rem;
+  align-items: center;
+  padding: 0.46rem 0.6rem 0.62rem;
+  border-radius: 11px;
+  background: #f5f7fc;
+  transition: opacity 500ms ease;
+}
+.srow[data-status="completed"] {
+  --c: #14998a;
+  --halo: rgba(20, 153, 138, 0.18);
+  --chip: #dff3ef;
+  --chip-ink: #0b6b60;
+  --bar: #14998a;
+}
+.srow[data-status="delivered"] {
+  --c: #14998a;
+  --halo: rgba(20, 153, 138, 0.18);
+  --chip: #14998a;
+  --chip-ink: #fff;
+  --bar: #14998a;
+}
+.srow[data-status="cancelled"] {
+  --c: #d9534f;
+  --halo: rgba(217, 83, 79, 0.16);
+  --chip: #fbe6e5;
+  --chip-ink: #b23a35;
+  --bar: #c3ccd9;
+  opacity: 0.72;
+}
+.srow__dot {
+  grid-row: 1 / 3;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--c);
+  box-shadow: 0 0 0 3px var(--halo);
+  transition: background 400ms ease, box-shadow 400ms ease;
+}
+.srow__name {
+  position: relative;
+  grid-column: 2;
+  justify-self: start;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  line-height: 1.3;
+  color: var(--ink);
+  transition: color 400ms ease;
+}
+.srow__name::after {
+  content: "";
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  top: 55%;
+  height: 1.5px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 500ms var(--ease-out);
+}
+.srow[data-status="cancelled"] .srow__name {
+  color: var(--ink-faint);
+}
+.srow[data-status="cancelled"] .srow__name::after {
+  transform: scaleX(1);
+}
+.srow__meta {
+  grid-column: 2;
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  line-height: 1.35;
+  color: var(--ink-faint);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.srow__state {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  padding: 0.32em 0.62em;
+  border-radius: 9999px;
+  background: var(--chip);
+  color: var(--chip-ink);
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  transition: background 400ms ease, color 400ms ease, opacity 180ms ease, transform 180ms ease;
+}
+.srow__bar {
+  position: absolute;
+  left: 1.98rem;
+  right: 0.6rem;
+  bottom: 0.3rem;
+  height: 3px;
+  border-radius: 2px;
+  background: rgba(10, 46, 110, 0.07);
+  overflow: hidden;
+}
+.srow__bar i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--bar);
+  transform: scaleX(var(--p, 0));
+  transform-origin: left center;
+  transition: transform var(--d, 0.6s) linear;
+}
+.srow.is-flash {
+  animation: srow-flash 1.3s ease-out;
+}
+.srow[data-flash="refine"] {
+  --flash: rgba(59, 125, 221, 0.2);
+  --ring: rgba(59, 125, 221, 0.55);
+}
+.srow[data-flash="cancel"] {
+  --flash: rgba(217, 83, 79, 0.16);
+  --ring: rgba(217, 83, 79, 0.5);
+}
+.srow[data-flash="deliver"] {
+  --flash: rgba(20, 153, 138, 0.18);
+  --ring: rgba(20, 153, 138, 0.5);
+}
+@keyframes srow-flash {
+  from {
+    background: var(--flash);
+    box-shadow: 0 0 0 1.5px var(--ring);
+  }
+  to {
+    background: #f5f7fc;
+    box-shadow: 0 0 0 1.5px transparent;
+  }
+}
+.scene__memory {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  margin: 0.5rem 0 0;
+  padding: 0.42rem 0.6rem;
+  border-radius: 11px;
+  border: 1px dashed rgba(124, 92, 191, 0.38);
+  transition: opacity 400ms ease;
+}
+.scene__memory i {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--j-plum);
+  box-shadow: 0 0 0 3px rgba(124, 92, 191, 0.16);
+}
+.scene__memory span {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--j-plum);
+}
+.scene__memory b {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  transition: opacity 180ms ease, transform 180ms ease;
+}
+.scene__memory.is-flash {
+  animation: memory-flash 1.3s ease-out;
+}
+@keyframes memory-flash {
+  from {
+    background: rgba(124, 92, 191, 0.16);
+    border-color: rgba(124, 92, 191, 0.75);
+  }
+}
+/* Text that changes in place fades out and back in. */
+.scene .is-swap {
+  opacity: 0;
+  transform: translateY(3px);
+}
+.scene__token {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 10px 24px -6px rgba(10, 46, 110, 0.35);
+  will-change: transform, opacity;
+}
+.scene__token.scene__token.optag--heard {
+  background: #fff;
+  color: #0b6b60;
+  box-shadow:
+    inset 0 0 0 1px rgba(20, 153, 138, 0.5),
+    0 10px 24px -6px rgba(10, 46, 110, 0.3);
+}
+.scene__echo {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 3;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--j-teal);
+  box-shadow:
+    0 0 0 4px rgba(20, 153, 138, 0.2),
+    0 0 16px 3px rgba(20, 153, 138, 0.55);
+  opacity: 0;
+  pointer-events: none;
+}
+.scene.is-resetting .scene__rows,
+.scene.is-resetting .scene__memory,
+.scene.is-resetting .scene__said {
+  opacity: 0.12;
+}
+.scene.is-paused,
+.scene.is-paused * {
+  animation-play-state: paused !important;
 }
 
 .publication-title {
@@ -4265,18 +4595,6 @@ text.gp-band-label.gp-band--done {
 }
 
 /* ============ Responsive ============= */
-@media (max-width: 900px) {
-  .float-chip--refine,
-  .float-chip--cancel {
-    display: none;
-  }
-  .float-chip--new {
-    left: -22%;
-  }
-  .float-chip--save {
-    right: -26%;
-  }
-}
 @media (max-width: 768px) {
   .hero {
     padding: 1.8rem 0 2.6rem;
@@ -4287,8 +4605,49 @@ text.gp-band-label.gp-band--done {
   .affiliation-row {
     gap: 1.8rem;
   }
-  .float-chip {
-    display: none;
+}
+/* On a phone the title comes first and the scene stacks: orb and words on
+   one row, the ledger under them. */
+@media (max-width: 680px) {
+  .hero__inner {
+    display: flex;
+    flex-direction: column;
+  }
+  .hero__art {
+    order: 1;
+    margin: 1.9rem auto 0;
+  }
+  .affiliation-row {
+    order: 2;
+  }
+  .scene {
+    grid-template-columns: minmax(0, 1fr);
+    justify-items: center;
+    gap: 0.9rem;
+  }
+  .scene__voice {
+    flex-direction: row;
+    justify-content: center;
+    gap: 0.3rem;
+    width: 100%;
+  }
+  .orb {
+    flex: 0 0 auto;
+    width: 128px;
+    height: 128px;
+  }
+  .scene__said {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+    margin: 0;
+    padding: 0.55rem 0.8rem;
+    border-radius: 14px;
+    white-space: normal;
+  }
+  .scene__ledger {
+    width: 100%;
+    max-width: 380px;
   }
 }
 

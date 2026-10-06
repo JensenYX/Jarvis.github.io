@@ -14,7 +14,8 @@
       content="A slow-brain harness for full-duplex voice agents: typed decisions over versioned tasks, delivery confirmed by playback receipts, and visual evidence that expires."
     />
     <meta property="og:image" content="assets/posters/audio-daily-en.jpg" />
-    <link rel="icon" href="assets/brand/jarvis-penguin-192.png" type="image/png" />
+    <link rel="icon" href="assets/brand/jarvis-mark.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/brand/jarvis-mark-192.png" sizes="192x192" type="image/png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -33,7 +34,7 @@
     <nav class="topnav" id="topnav" aria-label="Sections">
       <div class="container container--wide topnav__inner">
         <a class="topnav__brand" href="#top">
-          <img src="assets/brand/jarvis-penguin-192.png" alt="" width="30" height="24" />
+          <img src="assets/brand/jarvis-mark.svg" alt="" width="24" height="24" />
           <span>Jarvis</span>
         </a>
         <div class="topnav__links">
@@ -59,22 +60,95 @@
         />
       </svg>
       <div class="container hero__inner">
+        <!-- The voice orb and the Task Ledger it hands work to. js/hero.js
+             replays a few turns of the game-night session on it. -->
         <div class="hero__art">
-          <picture>
-            <source srcset="assets/brand/jarvis-penguin.webp" type="image/webp" />
-            <img
-              class="hero__penguin"
-              src="assets/brand/jarvis-penguin.png"
-              width="560"
-              height="444"
-              alt="The Jarvis mascot: a penguin in a blue beanie at a desk, with floating windows of code, video and files and a sound wave in front of it."
-            />
-          </picture>
-          <span class="float-chip float-chip--new" aria-hidden="true">NEW <b>game</b></span>
-          <span class="float-chip float-chip--refine" aria-hidden="true">REFINE <b>game v3</b></span>
-          <span class="float-chip float-chip--save" aria-hidden="true">SAVE <b>usual budget</b></span>
-          <span class="float-chip float-chip--cancel" aria-hidden="true">CANCEL <b>sign v1</b></span>
-          <span class="float-chip float-chip--done" aria-hidden="true">&#10003; heard in full</span>
+          <div
+            class="scene"
+            id="scene"
+            role="img"
+            aria-label="Animation: a voice orb listens to the user, and each request travels to the Task Ledger as a typed operation on the task it names. The game becomes version 2, tonight's snack budget changes while the usual one stays in memory, the weather counts as delivered once it has been heard in full, and cancelling the welcome sign leaves everything else running."
+          >
+            <div class="scene__voice">
+              <svg class="orb" viewBox="0 0 240 240" aria-hidden="true">
+                <defs>
+                  <radialGradient id="orb-body" cx="0.34" cy="0.28" r="0.8">
+                    <stop offset="0" stop-color="#b4d0ff" />
+                    <stop offset="0.42" stop-color="#3b7ddd" />
+                    <stop offset="1" stop-color="#5a3dbf" />
+                  </radialGradient>
+                  <radialGradient id="orb-glow">
+                    <stop offset="0.5" stop-color="#4f86ea" stop-opacity="0.36" />
+                    <stop offset="0.78" stop-color="#7c5cbf" stop-opacity="0.12" />
+                    <stop offset="1" stop-color="#7c5cbf" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="orb-shine" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#fff" stop-opacity="0.5" />
+                    <stop offset="1" stop-color="#fff" stop-opacity="0" />
+                  </linearGradient>
+                  <linearGradient id="orb-rim" x1="0.2" y1="0.1" x2="0.8" y2="0.95">
+                    <stop offset="0" stop-color="#fff" stop-opacity="0.05" />
+                    <stop offset="1" stop-color="#d9ccff" stop-opacity="0.55" />
+                  </linearGradient>
+                </defs>
+                <circle class="orb__glow" cx="120" cy="120" r="120" fill="url(#orb-glow)" />
+                <g class="orb__ripples" fill="none">
+                  <circle cx="120" cy="120" r="64" />
+                  <circle cx="120" cy="120" r="64" />
+                  <circle cx="120" cy="120" r="64" />
+                </g>
+                <circle class="orb__body" cx="120" cy="120" r="64" fill="url(#orb-body)" />
+                <circle cx="120" cy="120" r="62.5" fill="none" stroke="url(#orb-rim)" stroke-width="2" />
+                <ellipse cx="104" cy="84" rx="30" ry="13" fill="url(#orb-shine)" />
+                <g class="orb__wave" fill="#fff">
+                  <rect x="73" y="113" width="6" height="14" rx="3" style="--t: 1.1s; --d: -0.2s" />
+                  <rect x="84" y="107" width="6" height="26" rx="3" style="--t: 0.9s; --d: -0.6s" />
+                  <rect x="95" y="101" width="6" height="38" rx="3" style="--t: 1.3s; --d: -0.1s" />
+                  <rect x="106" y="95" width="6" height="50" rx="3" style="--t: 1s; --d: -0.8s" />
+                  <rect x="117" y="91" width="6" height="58" rx="3" style="--t: 1.2s; --d: -0.4s" />
+                  <rect x="128" y="95" width="6" height="50" rx="3" style="--t: 0.95s; --d: -0.7s" />
+                  <rect x="139" y="101" width="6" height="38" rx="3" style="--t: 1.25s; --d: -0.3s" />
+                  <rect x="150" y="107" width="6" height="26" rx="3" style="--t: 0.85s; --d: -0.5s" />
+                  <rect x="161" y="113" width="6" height="14" rx="3" style="--t: 1.15s; --d: -0.9s" />
+                </g>
+              </svg>
+              <p class="scene__said" id="scene-said" data-who="User"><b>User</b><span>&ldquo;Wait, make it two-player.&rdquo;</span></p>
+            </div>
+            <div class="scene__ledger">
+              <p class="scene__head"><span>Task Ledger</span><span class="scene__live">live</span></p>
+              <ol class="scene__rows">
+                <li class="srow" data-task="game" data-status="running" style="--p: 0.35">
+                  <i class="srow__dot"></i>
+                  <span class="srow__name">Star game</span>
+                  <span class="srow__meta">v1 &middot; building</span>
+                  <span class="srow__state">Running</span>
+                  <span class="srow__bar"><i></i></span>
+                </li>
+                <li class="srow" data-task="weather" data-status="running" style="--p: 0.5">
+                  <i class="srow__dot"></i>
+                  <span class="srow__name">Shanghai weather</span>
+                  <span class="srow__meta">v1 &middot; tonight</span>
+                  <span class="srow__state">Running</span>
+                  <span class="srow__bar"><i></i></span>
+                </li>
+                <li class="srow" data-task="snacks" data-status="delivered" style="--p: 1">
+                  <i class="srow__dot"></i>
+                  <span class="srow__name">Snack plan</span>
+                  <span class="srow__meta">v1 &middot; usual $40</span>
+                  <span class="srow__state">Delivered</span>
+                  <span class="srow__bar"><i></i></span>
+                </li>
+                <li class="srow" data-task="sign" data-status="running" style="--p: 0.2">
+                  <i class="srow__dot"></i>
+                  <span class="srow__name">Welcome sign</span>
+                  <span class="srow__meta">v1 &middot; drafting</span>
+                  <span class="srow__state">Running</span>
+                  <span class="srow__bar"><i></i></span>
+                </li>
+              </ol>
+              <p class="scene__memory" id="scene-memory"><i></i><span>Memory</span><b>usual snacks &middot; $40</b></p>
+            </div>
+          </div>
         </div>
 
         <h1 class="title publication-title">

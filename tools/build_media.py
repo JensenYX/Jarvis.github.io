@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build the web-ready media for the project page.
 
-Needs ffmpeg with libx264 and an interpreter with Pillow and numpy, which the
+Needs ffmpeg with libx264 and an interpreter with Pillow, which the
 jev-harness env provides:
 
     ENV=/apdcephfs_tj6/share_303840540/hunyuan/jensenwang/conda_env/jev-harness
@@ -15,8 +15,6 @@ Steps, all of them by default and always in this order:
            pick the poster frames in POSTER_AT.
   posters  assets/posters/<slug>.jpg (1280 px) and <slug>-thumb.jpg (480 px).
   audio    build/media/<slug>.wav, 16 kHz mono, the input of tools/transcribe.py.
-  brand    assets/brand/jarvis-penguin.{png,webp}, the report's project icon
-           cut out of its white background.
   probe    build/media/media.json with duration, size and resolution.
 """
 
@@ -32,17 +30,11 @@ ROOT = Path(__file__).resolve().parent.parent
 RAW = ROOT / "demo_video"
 VIDEOS = ROOT / "assets" / "videos"
 POSTERS = ROOT / "assets" / "posters"
-BRAND = ROOT / "assets" / "brand"
 WORK = ROOT / "build" / "media"
 
 ENV_BIN = Path("/apdcephfs_tj6/share_303840540/hunyuan/jensenwang/conda_env/jev-harness/bin")
 FFMPEG = os.environ.get("FFMPEG", str(ENV_BIN / "ffmpeg"))
 FFPROBE = os.environ.get("FFPROBE", str(ENV_BIN / "ffprobe"))
-
-PENGUIN_SRC = Path(
-    "/apdcephfs_tj6/share_303840540/hunyuan/jensenwang/git_warehouse/"
-    "interactive-model-harness-jev/technical_report/figures/icons/log4.png"
-)
 
 # Page order: the five Jarvis-Audio sessions, then the two Jarvis-Omni ones.
 DEMOS = [
@@ -194,52 +186,6 @@ def build_audio() -> None:
              "-c:a", "pcm_s16le", str(out)])
 
 
-# ----------------------------------------------------------------- brand
-
-
-def build_brand() -> None:
-    import numpy as np
-    from PIL import Image, ImageDraw, ImageFilter
-
-    img = Image.open(PENGUIN_SRC).convert("RGB")
-    w, h = img.size
-    # Flood the white page from the border so white inside the artwork (the
-    # eyes, the desk highlight) is kept.
-    probe_img = img.copy()
-    sentinel = (255, 0, 255)
-    seeds = [(x, 0) for x in range(0, w, 16)] + [(x, h - 1) for x in range(0, w, 16)]
-    seeds += [(0, y) for y in range(0, h, 16)] + [(w - 1, y) for y in range(0, h, 16)]
-    for xy in seeds:
-        pixel = probe_img.getpixel(xy)
-        if pixel != sentinel and min(pixel) > 225:
-            ImageDraw.floodfill(probe_img, xy, sentinel, thresh=28)
-
-    rgb = np.asarray(img).astype(np.float32)
-    background = np.all(np.asarray(probe_img) == np.array(sentinel), axis=-1)
-    alpha = np.ones((h, w), np.float32)
-    alpha[background] = 0.0
-    # A thin band around the cut follows distance from white, and the colour is
-    # un-premultiplied against white so no pale fringe survives on dark pages.
-    grown = Image.fromarray((background * 255).astype(np.uint8)).filter(ImageFilter.MaxFilter(5))
-    band = (np.asarray(grown) > 0) & ~background
-    soft = np.clip((255.0 - rgb.min(axis=-1)) / 60.0, 0.0, 1.0)
-    alpha[band] = soft[band]
-    a = alpha[..., None]
-    rgb = np.clip(np.where(a > 0, (rgb - (1 - a) * 255.0) / np.maximum(a, 1e-3), 0), 0, 255)
-    cut = Image.fromarray(np.dstack([rgb, alpha * 255]).astype(np.uint8), "RGBA")
-    cut = cut.crop(cut.getbbox())
-
-    BRAND.mkdir(parents=True, exist_ok=True)
-    width = 560
-    small = cut.resize((width, round(cut.size[1] * width / cut.size[0])), Image.LANCZOS)
-    small.save(BRAND / "jarvis-penguin.png", optimize=True)
-    small.save(BRAND / "jarvis-penguin.webp", quality=88, method=6)
-    icon = cut.resize((192, round(cut.size[1] * 192 / cut.size[0])), Image.LANCZOS)
-    icon.save(BRAND / "jarvis-penguin-192.png", optimize=True)
-    for name in ("jarvis-penguin.png", "jarvis-penguin.webp", "jarvis-penguin-192.png"):
-        print(f"brand: assets/brand/{name} {os.path.getsize(BRAND / name) // 1024} KB")
-
-
 # ----------------------------------------------------------------- probe
 
 
@@ -270,7 +216,6 @@ STEPS = {
     "sheets": build_sheets,
     "posters": build_posters,
     "audio": build_audio,
-    "brand": build_brand,
     "probe": build_probe,
 }
 
