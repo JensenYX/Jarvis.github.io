@@ -218,3 +218,14 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# ---------------------------------------------------------------------------
+# Project page media
+#
+# demo_video/ holds the raw recordings as delivered (one is a webm, two keep
+# their index at the end of the file). tools/build_media.py turns them into the
+# web-ready copies under assets/videos/, which are what the page serves, so the
+# raw files stay out of the repo. Intermediate WAVs, contact sheets and ASR
+# transcripts are written to build/, ignored above.
+# ---------------------------------------------------------------------------
+demo_video/

@@ -1,0 +1,1226 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jarvis &mdash; Coordinating Fast Talk and Slow Work in Full-Duplex Audio and Omni Agents</title>
+    <meta
+      name="description"
+      content="Jarvis is a slow-brain harness for full-duplex voice agents. Users keep talking while work runs in the background; Jarvis turns every turn into a typed, version-checked operation and counts an answer as delivered only once it has been heard. Watch seven recorded sessions."
+    />
+    <meta property="og:title" content="Jarvis — Coordinating Fast Talk and Slow Work in Full-Duplex Audio and Omni Agents" />
+    <meta
+      property="og:description"
+      content="A slow-brain harness for full-duplex voice agents: typed decisions over versioned tasks, delivery confirmed by playback receipts, and visual evidence that expires."
+    />
+    <meta property="og:image" content="assets/posters/audio-daily-en.jpg" />
+    <link rel="icon" href="assets/brand/jarvis-penguin-192.png" type="image/png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;500;700&family=Noto+Sans:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/site.css" />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#demos">Skip to the demos</a>
+
+    <!-- ===== Sticky section nav (shown once the hero scrolls away) ===== -->
+    <nav class="topnav" id="topnav" aria-label="Sections">
+      <div class="container container--wide topnav__inner">
+        <a class="topnav__brand" href="#top">
+          <img src="assets/brand/jarvis-penguin-192.png" alt="" width="30" height="24" />
+          <span>Jarvis</span>
+        </a>
+        <div class="topnav__links">
+          <a href="#demos">Demos</a>
+          <a href="#overview">Overview</a>
+          <a href="#how">How it works</a>
+          <a href="#session">A session</a>
+          <a href="#results">Results</a>
+          <a href="#omni">Omni</a>
+          <a href="#citation">Citation</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ===== Hero ===== -->
+    <header class="hero" id="top">
+      <svg class="hero__waves" viewBox="0 0 2880 150" preserveAspectRatio="none" aria-hidden="true">
+        <path class="wave--slow-2" d="M0 112q120 -36 240 0t240 0t240 0t240 0t240 0t240 0t240 0t240 0t240 0t240 0t240 0t240 0" />
+        <path class="wave--slow" d="M0 100q180 -60 360 0t360 0t360 0t360 0t360 0t360 0t360 0t360 0" />
+        <path
+          class="wave--fast"
+          d="M0 96q30 -14 60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0t60 0"
+        />
+      </svg>
+      <div class="container hero__inner">
+        <div class="hero__art">
+          <picture>
+            <source srcset="assets/brand/jarvis-penguin.webp" type="image/webp" />
+            <img
+              class="hero__penguin"
+              src="assets/brand/jarvis-penguin.png"
+              width="560"
+              height="444"
+              alt="The Jarvis mascot: a penguin in a blue beanie at a desk, with floating windows of code, video and files and a sound wave in front of it."
+            />
+          </picture>
+          <span class="float-chip float-chip--new" aria-hidden="true">NEW <b>game</b></span>
+          <span class="float-chip float-chip--refine" aria-hidden="true">REFINE <b>game v3</b></span>
+          <span class="float-chip float-chip--save" aria-hidden="true">SAVE <b>usual budget</b></span>
+          <span class="float-chip float-chip--cancel" aria-hidden="true">CANCEL <b>sign v1</b></span>
+          <span class="float-chip float-chip--done" aria-hidden="true">&#10003; heard in full</span>
+        </div>
+
+        <h1 class="title publication-title">
+          <span class="publication-title__brand">Jarvis</span>: Coordinating Fast Talk and Slow Work in
+          Full-Duplex Audio and Omni Agents
+        </h1>
+        <p class="publication-subtitle">
+          A slow-brain harness for full-duplex voice agents. Users keep talking while the work runs in the
+          background; Jarvis turns every turn into a typed operation on a versioned task, checks it against
+          the current state before it acts, and counts an answer as delivered only once the user has heard it.
+        </p>
+        <p class="publication-team">Jarvis Team</p>
+
+        <div class="publication-links">
+          <span class="button is-disabled" aria-disabled="true" title="Coming soon">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M6 2h8l6 6v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm7 1.5V9h5.5L13 3.5zM8 13h8v1.6H8V13zm0 3.4h8V18H8v-1.6zM8 9.6h3.5v1.6H8V9.6z"/></svg>
+            </span>
+            <span>Report (coming soon)</span>
+          </span>
+          <span class="button is-disabled" aria-disabled="true" title="Coming soon">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="17" height="17" fill="currentColor"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2.1c-3.2.7-3.88-1.37-3.88-1.37-.53-1.34-1.3-1.7-1.3-1.7-1.05-.72.08-.71.08-.71 1.17.08 1.78 1.2 1.78 1.2 1.04 1.78 2.72 1.27 3.38.97.1-.76.4-1.27.74-1.56-2.55-.29-5.24-1.27-5.24-5.66 0-1.25.45-2.27 1.18-3.07-.12-.29-.51-1.46.11-3.05 0 0 .96-.31 3.15 1.17a10.9 10.9 0 0 1 5.74 0c2.18-1.48 3.14-1.17 3.14-1.17.63 1.59.24 2.76.12 3.05.74.8 1.18 1.82 1.18 3.07 0 4.4-2.69 5.36-5.25 5.65.41.35.78 1.05.78 2.12v3.14c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg>
+            </span>
+            <span>Code (coming soon)</span>
+          </span>
+          <a class="button button--primary" href="#demos">
+            <span class="icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+            </span>
+            <span>Watch the demos</span>
+          </a>
+        </div>
+
+        <div class="affiliation-row" aria-label="Affiliations">
+          <img src="assets/brand/cuhksz.png" data-logo="cuhksz" alt="The Chinese University of Hong Kong, Shenzhen" />
+          <img src="assets/brand/hunyuan-wordmark.png" data-logo="hunyuan" alt="Tencent HY" />
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <!-- ===== Demo theater ===== -->
+      <section class="theater-section" id="demos" aria-labelledby="demos-title">
+        <div class="theater-section__glow" aria-hidden="true"></div>
+        <div class="container container--wide">
+          <div class="section-head section-head--night reveal">
+            <p class="eyebrow">Demos</p>
+            <h2 class="section-title" id="demos-title">Jarvis in Action</h2>
+            <p class="section-lede">
+              Seven recorded sessions. In five, <strong>Jarvis-Audio</strong> runs on a full-duplex speech model: it
+              keeps the conversation going while games, lookups and code answers run in the background, or plays a
+              game alongside the user. In two, <strong>Jarvis-Omni</strong> also watches the screen and coaches a
+              player through CS2 and League of Legends. The Mandarin sessions have English subtitles under the
+              video; pick a chapter to jump to the moment that matters.
+            </p>
+          </div>
+
+          <div class="theater reveal" id="theater">
+            <div class="theater__main">
+              <div class="stage" id="stage">
+                <video class="stage__video" id="stage-video" controls playsinline preload="metadata"></video>
+                <div class="upnext" id="upnext" hidden></div>
+              </div>
+              <div class="captionbar" id="captionbar"></div>
+              <div class="stage-info" id="stage-info"></div>
+            </div>
+            <aside class="playlist" id="playlist" aria-label="Demo videos"></aside>
+          </div>
+
+          <noscript>
+            <ul class="noscript-list">
+              <li><a href="assets/videos/audio-daily-zh.mp4">Everyday assistant (Mandarin)</a></li>
+              <li><a href="assets/videos/audio-daily-en.mp4">Game night (English)</a></li>
+              <li><a href="assets/videos/audio-pvz.mp4">Plants vs. Zombies co-pilot</a></li>
+              <li><a href="assets/videos/audio-minecraft-1.mp4">Minecraft-style sandbox: the stone shelter</a></li>
+              <li><a href="assets/videos/audio-minecraft-2.mp4">Minecraft-style sandbox: the rematch</a></li>
+              <li><a href="assets/videos/omni-cs2.mp4">CS2 screen companion</a></li>
+              <li><a href="assets/videos/omni-lol.mp4">League of Legends screen companion</a></li>
+            </ul>
+          </noscript>
+        </div>
+      </section>
+
+      <!-- ===== Headline numbers ===== -->
+      <section class="section highlights" id="highlights" aria-label="Headline results">
+        <div class="container">
+          <div class="stat-grid">
+            <article class="stat reveal">
+              <p class="stat__kicker"><span class="nocaps">&tau;</span>-Voice &middot; same front model</p>
+              <p class="stat__value"><span data-count="187">187</span><small>/278</small></p>
+              <p class="stat__label">tasks solved on Venus-Audio when only the harness changes. Qwen Audio Agent solves 29.</p>
+              <div class="stat__bars" aria-hidden="true">
+                <span class="stat__bar stat__bar--base" style="--w: 10.4%"><i>QAA 29</i></span>
+                <span class="stat__bar" style="--w: 67.3%"><i>Jarvis 187</i></span>
+              </div>
+            </article>
+            <article class="stat reveal" style="--reveal-delay: 80ms">
+              <p class="stat__kicker">Full-Duplex-Bench v3</p>
+              <p class="stat__value"><span data-count="69">69</span><small>%</small></p>
+              <p class="stat__label">Pass@1 for Jarvis-Audio, ahead of GPT-Realtime at 60% and 21 points above the model it runs on.</p>
+              <div class="stat__bars" aria-hidden="true">
+                <span class="stat__bar stat__bar--base" style="--w: 60%"><i>GPT-Realtime 60</i></span>
+                <span class="stat__bar" style="--w: 69%"><i>Jarvis-Audio 69</i></span>
+              </div>
+            </article>
+            <article class="stat reveal" style="--reveal-delay: 160ms">
+              <p class="stat__kicker"><span class="nocaps">&tau;</span>-Voice public leaderboard</p>
+              <p class="stat__value"><span data-count="69.2" data-decimals="1">69.2</span><small>%</small></p>
+              <p class="stat__label">macro task success, higher than every realtime speech model on the board, with an open 9B front model.</p>
+              <div class="stat__bars" aria-hidden="true">
+                <span class="stat__bar stat__bar--base" style="--w: 42.4%"><i>GPT-Realtime 2 42.4</i></span>
+                <span class="stat__bar" style="--w: 69.2%"><i>Jarvis-Audio 69.2</i></span>
+              </div>
+            </article>
+            <article class="stat reveal">
+              <p class="stat__kicker">Scripted races</p>
+              <p class="stat__value"><span data-count="240">240</span><small>/240</small></p>
+              <p class="stat__label">runs consistent under refinements, cancellations and interruptions: no stale audio, no stale tool effect, no false delivery.</p>
+            </article>
+            <article class="stat reveal" style="--reveal-delay: 80ms">
+              <p class="stat__kicker">Decision brain</p>
+              <p class="stat__value"><span data-count="91">91</span><small>%</small></p>
+              <p class="stat__label">of JEV decisions are correct and confident within one second. General LLM controllers manage 0%.</p>
+            </article>
+            <article class="stat reveal" style="--reveal-delay: 160ms">
+              <p class="stat__kicker">Jarvis-Omni</p>
+              <p class="stat__value"><small>+</small><span data-count="22.7" data-decimals="1">22.7</span><small>pp</small></p>
+              <p class="stat__label">correct answers come from the screen, and advice whose visual evidence has expired is never spoken.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Overview: abstract and the problem ===== -->
+      <section class="section" id="overview" aria-labelledby="overview-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Overview</p>
+            <h2 class="section-title" id="overview-title">Coordination deserves a brain of its own</h2>
+          </div>
+
+          <div class="abstract-grid">
+            <div class="content abstract reveal">
+              <p>
+                Full-duplex speech models can listen and talk at the same time, and voice agents increasingly pair
+                them with a stronger model that works in the background. This split gives an agent room to think,
+                but it raises a problem that neither model solves on its own. <strong>The conversation does not
+                wait for the work.</strong> Users refine a request, cancel it or ask something new while tasks are
+                still running, and results come back after the request behind them has changed.
+              </p>
+              <p>
+                <strong>Jarvis</strong> is a slow-brain harness that gives this coordination a brain of its own. A
+                small adapter on the front model's own control tokens decides when a turn should go to the slow
+                brain. <strong>JEV</strong>, a judgment model that answers typed questions instead of writing free
+                text, then decides what the turn means for the work in flight. It chooses among concrete operations
+                that the runtime reads off the <strong>Task Ledger</strong>, a versioned record of every request,
+                such as refining the second version of a game. Every choice is therefore executable, and a choice
+                made against an outdated version is simply rejected. An answer counts as delivered only when
+                playback receipts show that the user heard it, and a gated memory keeps lasting facts apart from
+                passing remarks.
+              </p>
+              <p>
+                <strong>Jarvis-Audio</strong> runs on full-duplex speech models, and <strong>Jarvis-Omni</strong>
+                runs on an audio-visual model and treats what it sees as evidence that expires. With the front
+                model held fixed, replacing Qwen Audio Agent with Jarvis raises &tau;-Voice task success from 29 to
+                187 of 278 tasks, and Jarvis-Audio reaches 69% Pass@1 on Full-Duplex-Bench v3, ahead of
+                GPT-Realtime at 60%.
+              </p>
+            </div>
+
+            <aside class="motto reveal" style="--reveal-delay: 120ms" aria-label="The rule Jarvis follows">
+              <p class="motto__kicker">The rule</p>
+              <p class="motto__line">Models judge,<br /><span class="text-gradient">code enforces.</span></p>
+              <ol class="motto__steps">
+                <li>
+                  <b>When.</b> The Native Gate reads the front model's own control tokens and hands a turn to the
+                  slow brain once the request is complete.
+                </li>
+                <li>
+                  <b>What.</b> JEV picks one of the operations the runtime wrote from the Task Ledger, such as
+                  <code>REFINE:snacks:1</code>. It never writes an instruction.
+                </li>
+                <li>
+                  <b>Whether.</b> The runtime applies the choice only if that task version is still live, and
+                  accepts a result only for the version that asked for it.
+                </li>
+                <li>
+                  <b>Heard.</b> A task is delivered only when playback receipts show the user heard all of it.
+                </li>
+              </ol>
+            </aside>
+          </div>
+
+          <div class="problem">
+            <div class="section-head section-head--sub reveal">
+              <p class="eyebrow">The problem</p>
+              <h3 class="section-title section-title--sub">Six ways a voice agent goes wrong while work is running</h3>
+              <p class="section-lede">
+                These are not recognition errors and not reasoning errors. They happen because two processes move at
+                different speeds and nothing keeps them in step. The first five arise with audio alone; the sixth
+                appears once the agent can see.
+              </p>
+            </div>
+            <div class="failure-grid">
+              <article class="failure reveal">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
+                </div>
+                <h4>Stale delivery</h4>
+                <p>The first draft of a game is presented after the user has already asked for a light theme.</p>
+                <a class="failure__fix" href="#race-card"><span>Prevented by</span> Task Ledger versions</a>
+              </article>
+              <article class="failure reveal" style="--reveal-delay: 60ms">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M3 7h4l10 10h4M3 17h4l3-3M14 10l3-3h4" /><path d="m19 5 2 2-2 2M19 15l2 2-2 2" /></svg>
+                </div>
+                <h4>Misbinding</h4>
+                <p>&ldquo;Make it sixty dollars&rdquo; changes the game instead of the snack plan.</p>
+                <a class="failure__fix" href="#jev-card"><span>Prevented by</span> JEV over version-bound options</a>
+              </article>
+              <article class="failure reveal" style="--reveal-delay: 120ms">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M6 20v-9a6 6 0 0 1 12 0v9l-2-1.5-2 1.5-2-1.5-2 1.5-2-1.5z" /><circle cx="9.5" cy="11" r="0.9" /><circle cx="14.5" cy="11" r="0.9" /></svg>
+                </div>
+                <h4>Ghost execution</h4>
+                <p>A plan formed before the user corrected the order number is executed anyway.</p>
+                <a class="failure__fix" href="#race-card"><span>Prevented by</span> Freshness check on the plan</a>
+              </article>
+              <article class="failure reveal">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M4 9.5h3l4-3.5v12l-4-3.5H4z" /><path d="m15 9.5 5 5M20 9.5l-5 5" /></svg>
+                </div>
+                <h4>Lost delivery</h4>
+                <p>The user cuts an answer off halfway, yet the task is recorded as delivered.</p>
+                <a class="failure__fix" href="#race-card"><span>Prevented by</span> Playback receipts and epochs</a>
+              </article>
+              <article class="failure reveal" style="--reveal-delay: 60ms">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="7" ry="2.5" /><path d="M5 6v12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5V6" /><path d="M5 12c0 1.4 3.1 2.5 7 2.5s7-1.1 7-2.5" /></svg>
+                </div>
+                <h4>Memory drift</h4>
+                <p>&ldquo;Only sixty tonight&rdquo; overwrites the usual budget of forty.</p>
+                <a class="failure__fix" href="#memory-card"><span>Prevented by</span> Gated memory writes</a>
+              </article>
+              <article class="failure failure--omni reveal" style="--reveal-delay: 120ms">
+                <div class="failure__icon" aria-hidden="true">
+                  <svg viewBox="0 0 24 24"><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" /><circle cx="12" cy="12" r="3" /><path d="M4.5 19.5 19.5 4.5" /></svg>
+                </div>
+                <h4>Expired evidence <span class="tag-omni">Omni</span></h4>
+                <p>Advice to push forward arrives after the teammate on screen has died.</p>
+                <a class="failure__fix" href="#omni"><span>Prevented by</span> Belief State validity windows</a>
+              </article>
+            </div>
+            <p class="problem__cause reveal">
+              All six share one cause: the system acts on a picture of the conversation that has stopped being
+              true. Jarvis makes the current state explicit and checks every action against it.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== How it works ===== -->
+      <section class="section section--soft" id="how" aria-labelledby="how-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">How it works</p>
+            <h2 class="section-title" id="how-title">Two brains, one harness</h2>
+            <p class="section-lede">
+              The fast brain keeps the conversation going and decides when to hand a turn over. The slow brain
+              interprets the turn with JEV, records the work in the Task Ledger, runs it in the background and
+              returns the answer in the fast brain's own voice, but only while the result is still valid. The two
+              never wait for each other.
+            </p>
+          </div>
+
+          <figure class="figure arch reveal">
+            <div class="arch__scroll">
+              <svg class="arch__svg" viewBox="0 0 1236 400" role="img" aria-labelledby="arch-title arch-desc">
+                <title id="arch-title">Overview of the Jarvis harness</title>
+                <desc id="arch-desc">
+                  Audio from the user reaches the Native Gate of the fast brain, which either lets the frozen speech
+                  model answer directly or delegates the turn. A delegated turn is bound to its transcript, JEV turns it
+                  into typed operations, the Task Ledger runs them on workers and tools, and Delivery sends live results
+                  back to the speech model, which reports playback receipts. Memory serves JEV and the ledger; Jarvis-Omni
+                  adds an Evidence Timeline and Belief State.
+                </desc>
+                <defs>
+                  <marker id="arr-ink" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 10 5 0 10z" fill="#5b6478" />
+                  </marker>
+                  <marker id="arr-coral" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                    <path d="M0 0 10 5 0 10z" fill="#c2413c" />
+                  </marker>
+                  <radialGradient id="pulse-blue">
+                    <stop offset="0" stop-color="#ffffff" />
+                    <stop offset="0.35" stop-color="#3b7ddd" />
+                    <stop offset="1" stop-color="#3b7ddd" stop-opacity="0" />
+                  </radialGradient>
+                  <radialGradient id="pulse-amber">
+                    <stop offset="0" stop-color="#ffffff" />
+                    <stop offset="0.35" stop-color="#e39b2d" />
+                    <stop offset="1" stop-color="#e39b2d" stop-opacity="0" />
+                  </radialGradient>
+                  <linearGradient id="jev-fill" x1="0" x2="1">
+                    <stop offset="0" stop-color="#1f5fd1" />
+                    <stop offset="1" stop-color="#6f56c6" />
+                  </linearGradient>
+                  <path id="arch-journey" d="M118 171H1155H970V316H291V331H118" />
+                  <path id="arch-fast" d="M118 171H291V331H118" />
+                </defs>
+
+                <!-- groups -->
+                <rect class="arch-group arch-group--fast" x="146" y="84" width="290" height="310" rx="18" />
+                <rect class="arch-group arch-group--slow" x="456" y="20" width="778" height="368" rx="18" />
+                <g class="arch-tab arch-tab--fast"><rect x="166" y="74" width="98" height="20" rx="10" /><text x="215" y="88">FAST BRAIN</text></g>
+                <g class="arch-tab arch-tab--slow"><rect x="476" y="10" width="232" height="20" rx="10" /><text x="592" y="24">SLOW BRAIN &#183; JARVIS HARNESS</text></g>
+
+                <!-- moving pulses sit under the boxes, so they pass through them -->
+                <g class="arch-pulses" aria-hidden="true">
+                  <circle r="9" fill="url(#pulse-amber)">
+                    <animateMotion dur="1.9s" repeatCount="indefinite"><mpath href="#arch-fast" /></animateMotion>
+                  </circle>
+                  <circle r="10" fill="url(#pulse-blue)">
+                    <animateMotion dur="7.2s" repeatCount="indefinite"><mpath href="#arch-journey" /></animateMotion>
+                  </circle>
+                  <circle r="10" fill="url(#pulse-blue)">
+                    <animateMotion dur="7.2s" begin="-3.6s" repeatCount="indefinite"><mpath href="#arch-journey" /></animateMotion>
+                  </circle>
+                </g>
+
+                <!-- arrows -->
+                <g class="arch-arrows" fill="none">
+                  <path d="M118 171H166" marker-end="url(#arr-ink)" />
+                  <path d="M291 214V286" marker-end="url(#arr-ink)" />
+                  <path d="M414 171H474" marker-end="url(#arr-ink)" />
+                  <path d="M626 171H658" marker-end="url(#arr-ink)" />
+                  <path d="M818 171H876" marker-end="url(#arr-ink)" />
+                  <path d="M1064 171H1088" marker-start="url(#arr-ink)" marker-end="url(#arr-ink)" />
+                  <path d="M1155 210V288" marker-start="url(#arr-ink)" marker-end="url(#arr-ink)" />
+                  <path d="M970 210V288" marker-end="url(#arr-ink)" />
+                  <path d="M970 114V132" marker-start="url(#arr-ink)" marker-end="url(#arr-ink)" />
+                  <path d="M876 78H790V132" marker-start="url(#arr-ink)" marker-end="url(#arr-ink)" />
+                  <path class="arch-arrow--dashed" d="M676 78H739V132" marker-end="url(#arr-ink)" />
+                  <path d="M168 331H120" marker-end="url(#arr-ink)" />
+                  <path class="arch-arrow--coral" d="M876 316H416" marker-end="url(#arr-coral)" />
+                  <path class="arch-arrow--coral" d="M416 342H876" marker-end="url(#arr-coral)" />
+                </g>
+                <g class="arch-labels">
+                  <text x="142" y="163" text-anchor="middle">audio</text>
+                  <text x="142" y="323" text-anchor="middle">speech</text>
+                  <text x="300" y="255">DIRECT</text>
+                  <text x="445" y="161" text-anchor="middle" class="arch-label--strong">DELEGATE</text>
+                  <text x="848" y="161" text-anchor="middle">typed ops</text>
+                  <text x="746" y="108">visual claims</text>
+                  <text x="978" y="255">live results</text>
+                  <text x="646" y="308" text-anchor="middle" class="arch-label--coral">speech request over the backend channel</text>
+                  <text x="646" y="361" text-anchor="middle" class="arch-label--coral">playback receipts</text>
+                </g>
+
+                <!-- boxes -->
+                <g class="arch-box arch-box--user">
+                  <rect x="14" y="128" width="104" height="232" rx="14" />
+                  <text class="arch-title" x="66" y="226" text-anchor="middle">User</text>
+                  <text class="arch-sub" x="66" y="248" text-anchor="middle">mic</text>
+                  <text class="arch-sub" x="66" y="266" text-anchor="middle">screen</text>
+                </g>
+                <g class="arch-box arch-box--amber">
+                  <rect x="168" y="128" width="246" height="86" rx="12" />
+                  <text class="arch-title" x="291" y="164" text-anchor="middle">Native Gate</text>
+                  <text class="arch-sub" x="291" y="188" text-anchor="middle">LISTEN &#183; DIRECT &#183; DELEGATE</text>
+                </g>
+                <g class="arch-box arch-box--slate">
+                  <rect x="168" y="288" width="246" height="86" rx="12" />
+                  <text class="arch-title" x="291" y="324" text-anchor="middle">Frozen speech model</text>
+                  <text class="arch-sub" x="291" y="348" text-anchor="middle">Thinker + Talker, weights unchanged</text>
+                </g>
+                <g class="arch-box arch-box--dashed">
+                  <rect x="476" y="44" width="200" height="68" rx="12" />
+                  <text class="arch-title arch-title--sm" x="576" y="74" text-anchor="middle">Evidence Timeline</text>
+                  <text class="arch-sub" x="576" y="96" text-anchor="middle">Belief State &#183; Jarvis-Omni</text>
+                </g>
+                <g class="arch-box arch-box--plum">
+                  <rect x="878" y="44" width="184" height="68" rx="12" />
+                  <text class="arch-title arch-title--sm" x="970" y="74" text-anchor="middle">Memory</text>
+                  <text class="arch-sub" x="970" y="96" text-anchor="middle">profile &#183; task records</text>
+                </g>
+                <g class="arch-box arch-box--slate">
+                  <rect x="476" y="134" width="150" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="551" y="166" text-anchor="middle">Turn binding</text>
+                  <text class="arch-sub" x="551" y="188" text-anchor="middle">ASR observer</text>
+                </g>
+                <g class="arch-box arch-box--jev">
+                  <rect x="660" y="134" width="158" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="739" y="166" text-anchor="middle">Decision Brain</text>
+                  <text class="arch-sub" x="739" y="188" text-anchor="middle">JEV &#183; typed ops</text>
+                </g>
+                <g class="arch-box arch-box--teal">
+                  <rect x="878" y="134" width="184" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="970" y="166" text-anchor="middle">Task Ledger</text>
+                  <text class="arch-sub" x="970" y="188" text-anchor="middle">versions &#183; freshness</text>
+                </g>
+                <g class="arch-box arch-box--teal">
+                  <rect x="1090" y="134" width="130" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="1155" y="166" text-anchor="middle">Workers</text>
+                  <text class="arch-sub" x="1155" y="188" text-anchor="middle">async tool loops</text>
+                </g>
+                <g class="arch-box arch-box--coral">
+                  <rect x="878" y="290" width="184" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="970" y="322" text-anchor="middle">Delivery</text>
+                  <text class="arch-sub" x="970" y="344" text-anchor="middle">epochs &#183; receipts</text>
+                </g>
+                <g class="arch-box arch-box--slate">
+                  <rect x="1090" y="290" width="130" height="74" rx="12" />
+                  <text class="arch-title arch-title--sm" x="1155" y="322" text-anchor="middle">Tools</text>
+                  <text class="arch-sub" x="1155" y="344" text-anchor="middle">web &#183; files &#183; games</text>
+                </g>
+              </svg>
+            </div>
+            <figcaption>
+              <strong>Fast talk, slow work.</strong> The amber pulse is a turn the front model answers on its own;
+              the blue one is a delegated turn on its way through the slow brain and back to the speaker. The dashed
+              module is used by Jarvis-Omni only. On a phone, swipe the diagram sideways.
+            </figcaption>
+          </figure>
+
+          <div class="principles">
+            <article class="principle reveal">
+              <span class="principle__n">01</span>
+              <h3>Learn <em>when</em>, keep <em>how</em></h3>
+              <p>The front model already speaks well. Only the decision of when to involve the slow brain is trained, on the model's own control tokens; every weight that produces speech stays frozen.</p>
+            </article>
+            <article class="principle reveal" style="--reveal-delay: 70ms">
+              <span class="principle__n">02</span>
+              <h3>Models judge, code enforces</h3>
+              <p>Questions that need understanding go to a model, but the model answers by choosing among operations the runtime prepared. The runtime then applies the choice and checks it against the current state.</p>
+            </article>
+            <article class="principle reveal" style="--reveal-delay: 140ms">
+              <span class="principle__n">03</span>
+              <h3>Nothing is assumed current</h3>
+              <p>Plans, results, playback and visual facts all carry a version, an epoch or a timestamp, and each is checked again before it may act or speak.</p>
+            </article>
+            <article class="principle reveal" style="--reveal-delay: 210ms">
+              <span class="principle__n">04</span>
+              <h3>Done is not delivered</h3>
+              <p>A worker finishing a task and the user hearing the answer are two separate events, and the system records them separately.</p>
+            </article>
+          </div>
+
+          <div class="modules reveal" id="modules">
+            <div class="modules__head">
+              <h3 class="modules__title">Inside the harness</h3>
+              <p class="modules__hint">Five modules, one per tab</p>
+            </div>
+            <div class="modules__tabs" role="tablist" aria-label="Modules of the harness">
+              <button type="button" role="tab" id="tab-gate" aria-controls="panel-gate" aria-selected="true"><span>01</span>Native Gate</button>
+              <button type="button" role="tab" id="tab-jev" aria-controls="panel-jev" aria-selected="false" tabindex="-1"><span>02</span>Decision Brain</button>
+              <button type="button" role="tab" id="tab-ledger" aria-controls="panel-ledger" aria-selected="false" tabindex="-1"><span>03</span>Task Ledger</button>
+              <button type="button" role="tab" id="tab-delivery" aria-controls="panel-delivery" aria-selected="false" tabindex="-1"><span>04</span>Delivery</button>
+              <button type="button" role="tab" id="tab-memory" aria-controls="panel-memory" aria-selected="false" tabindex="-1"><span>05</span>Memory</button>
+            </div>
+
+            <!-- Native Gate -->
+            <div class="module is-active" role="tabpanel" id="panel-gate" aria-labelledby="tab-gate">
+              <div class="module__text">
+                <h4>Learning when to hand off</h4>
+                <p>
+                  &ldquo;Build me a little game for tonight&rdquo; needs the slow brain, &ldquo;tell me a joke&rdquo;
+                  does not, and &ldquo;hold on, let me ask my roommate&rdquo; is not addressed to the assistant at
+                  all. The decision has to be made from audio while the user may still be talking, and the words
+                  alone cannot tell a finished request from a pause. The front model already knows, because it is
+                  the part that decides when to speak.
+                </p>
+                <p>
+                  So for every one-second audio unit the gate reads a three-way policy, LISTEN, DIRECT or DELEGATE,
+                  straight off the front model's native control tokens, and acts only once a branch reaches 0.8.
+                  It is a rank-8 LoRA trained with GRPO on the branch, not on a token, and it is switched on only in
+                  the routing pass, so the voice you hear comes from exactly the released weights.
+                </p>
+                <ul class="module__stats">
+                  <li><b>98.8%</b><span>first admissions at the right time and in the right branch (162 / 164)</span></li>
+                  <li><b>0.07%</b><span>of the model is trained: 6.2M parameters</span></li>
+                  <li><b>0 / 80</b><span>hand-offs without the adapter: the stock control head never delegates</span></li>
+                </ul>
+              </div>
+              <div class="module__visual">
+                <svg class="gate-plot" id="gate-plot" viewBox="0 0 520 290" role="img" aria-label="Gate policy over one-second audio units: LISTEN stays high while the user speaks, then DELEGATE rises past the 0.8 threshold once the request is complete."></svg>
+              </div>
+            </div>
+
+            <!-- Decision brain -->
+            <div class="module" role="tabpanel" id="panel-jev" aria-labelledby="tab-jev" hidden>
+              <div class="module__text">
+                <h4>Typed judgments, not free text</h4>
+                <p>
+                  Midway through game night the user says &ldquo;make it sixty dollars&rdquo;. The game is on its
+                  third version, the snack plan is running and the weather has just been played. Understanding the
+                  sentence needs a model; acting on it changes real tasks, so the model must never produce an
+                  operation the runtime cannot check.
+                </p>
+                <p>
+                  JEV never composes an instruction. The runtime writes the options from the live Task Ledger, and
+                  every option names a task and a version, so whatever JEV picks is executable by construction. Below
+                  a confidence of 0.8 the runtime does not guess: a worker takes the turn with full context and every
+                  existing task stays as it was.
+                </p>
+                <ul class="module__stats">
+                  <li><b>0.30 s</b><span>median decision request, against 1.57 s and 3.14 s for general LLM controllers</span></li>
+                  <li><b>91%</b><span>correct and confident within one second; the LLM controllers manage none</span></li>
+                  <li><b>252 / 256</b><span>replays bind the right operation to the right task</span></li>
+                </ul>
+              </div>
+              <div class="module__visual">
+                <div class="jev-demo" id="jev-card-demo">
+                  <div class="jev-demo__req">
+                    <p class="jev-demo__label">Request</p>
+                    <dl>
+                      <dt>input</dt>
+                      <dd>&ldquo;For tonight, only sixty dollars is fine.&rdquo;</dd>
+                      <dt>history</dt>
+                      <dd>last 12 turns</dd>
+                      <dt>user_profile</dt>
+                      <dd>[&ldquo;usual snack budget is $40&rdquo;, &hellip;]</dd>
+                      <dt>question</dt>
+                      <dd>operation <span class="jev-demo__type">Choice</span></dd>
+                    </dl>
+                  </div>
+                  <div class="jev-demo__ans">
+                    <p class="jev-demo__label">Typed answer</p>
+                    <ul class="jev-bars">
+                      <li style="--p: 0.04"><code>ANSWER</code><span class="jev-bars__desc">respond, use tools or ask</span><span class="jev-bars__track"><span></span></span><b>0.04</b></li>
+                      <li style="--p: 0.01"><code>MEMORY</code><span class="jev-bars__desc">fetch a fact from an earlier session</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
+                      <li class="is-pick" style="--p: 0.91"><code>REFINE:T5:1</code><span class="jev-bars__desc">modify &ldquo;snack plan with the usual budget&rdquo; &middot; COMPLETED</span><span class="jev-bars__track"><span></span></span><b>0.91</b></li>
+                      <li style="--p: 0.01"><code>CANCEL:T5:1</code><span class="jev-bars__desc">cancel that task without replacement</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
+                      <li style="--p: 0.02"><code>REFINE:T2:3</code><span class="jev-bars__desc">modify &ldquo;two-player star game&rdquo; &middot; RUNNING</span><span class="jev-bars__track"><span></span></span><b>0.02</b></li>
+                      <li style="--p: 0.01"><code>STOP_SPEAKING</code><span class="jev-bars__desc">stop the voice, keep all work</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
+                    </ul>
+                    <p class="jev-demo__note">
+                      <b>p(REFINE:T5:1) &ge; 0.8</b>, so the runtime supersedes version 1 of the snack plan and starts
+                      version 2 with the one-night budget. The game is not touched. Probabilities are illustrative,
+                      as in the report's Figure 4.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Task ledger -->
+            <div class="module" role="tabpanel" id="panel-ledger" aria-labelledby="tab-ledger" hidden>
+              <div class="module__text">
+                <h4>Execution tied to the latest intent</h4>
+                <p>
+                  The ledger is the one place where Jarvis records what the user asked for and what happened to it.
+                  Every task has a version. &ldquo;Use a light theme&rdquo; turns version 3 of the game into version
+                  4, and version 3 moves to SUPERSEDED. Four invariants rule out the stale, ghost and lost failures:
+                </p>
+                <ol class="invariants">
+                  <li><b>I1</b> One live version per request; a repeated utterance creates no duplicate.</li>
+                  <li><b>I2</b> A worker result is accepted only if its version is still live. Late drafts are discarded.</li>
+                  <li><b>I3</b> A plan is checked against the conversation before it acts, so a corrected order number stops an old plan.</li>
+                  <li><b>I4</b> A task becomes DELIVERED only through a complete playback receipt.</li>
+                </ol>
+                <ul class="module__stats">
+                  <li><b>240 / 240</b><span>race runs consistent with all four checks in place</span></li>
+                  <li><b>72</b><span>runs play a stale answer once the result check is removed</span></li>
+                </ul>
+              </div>
+              <div class="module__visual">
+                <svg class="ledger-svg" viewBox="0 0 520 270" role="img" aria-label="Life of a task: queued, running, completed, delivered, with branches to needs input, failed, cancelled and superseded. A superseded task starts a new version, and a late result for the old version is discarded.">
+                  <defs>
+                    <marker id="lg-arr" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#5b6478" /></marker>
+                    <marker id="lg-arr-blue" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3b7ddd" /></marker>
+                    <marker id="lg-arr-teal" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#14998a" /></marker>
+                  </defs>
+                  <g class="lg-arrows" fill="none">
+                    <path d="M116 125H144" marker-end="url(#lg-arr)" />
+                    <path d="M250 125H278" marker-end="url(#lg-arr)" />
+                    <path class="lg-arrow--teal" d="M384 125H412" marker-end="url(#lg-arr-teal)" />
+                    <path d="M198 140V198" marker-end="url(#lg-arr)" />
+                    <path d="M198 110V56" marker-end="url(#lg-arr)" />
+                    <path d="M238 110 300 56" marker-end="url(#lg-arr)" />
+                    <path d="M332 110V56" marker-end="url(#lg-arr)" />
+                    <path d="M238 140 312 198" marker-end="url(#lg-arr)" />
+                    <path d="M250 215H298" marker-end="url(#lg-arr)" />
+                    <path d="M362 140V198" marker-end="url(#lg-arr)" />
+                    <path class="lg-arrow--blue" d="M352 230V256H64V142" marker-end="url(#lg-arr-blue)" />
+                    <path class="lg-arrow--coral" d="M404 215H414" />
+                  </g>
+                  <g class="lg-labels">
+                    <text x="130" y="103" text-anchor="middle">slot free</text>
+                    <text x="264" y="103" text-anchor="middle">result</text>
+                    <text x="398" y="103" text-anchor="middle" class="lg-label--teal">receipt</text>
+                    <text x="204" y="174">asks user</text>
+                    <text x="204" y="88">error</text>
+                    <text x="262" y="80" class="lg-label--mono">CANCEL</text>
+                    <text x="254" y="186" class="lg-label--mono">REFINE</text>
+                    <text x="274" y="230" text-anchor="middle">answered</text>
+                    <text x="208" y="250" text-anchor="middle" class="lg-label--blue">new version v+1 of the same request</text>
+                  </g>
+                  <g class="lg-state lg-state--blue"><rect x="12" y="110" width="104" height="30" rx="15" /><text x="64" y="129.5" text-anchor="middle">QUEUED</text></g>
+                  <g class="lg-state lg-state--blue"><rect x="146" y="110" width="104" height="30" rx="15" /><text x="198" y="129.5" text-anchor="middle">RUNNING</text></g>
+                  <g class="lg-state lg-state--teal"><rect x="280" y="110" width="104" height="30" rx="15" /><text x="332" y="129.5" text-anchor="middle">COMPLETED</text></g>
+                  <g class="lg-state lg-state--done"><rect x="414" y="110" width="98" height="30" rx="15" /><text x="463" y="129.5" text-anchor="middle">DELIVERED</text></g>
+                  <g class="lg-state lg-state--amber"><rect x="146" y="200" width="104" height="30" rx="15" /><text x="198" y="219.5" text-anchor="middle">NEEDS_INPUT</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="146" y="24" width="104" height="30" rx="15" /><text x="198" y="43.5" text-anchor="middle">FAILED</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="280" y="24" width="104" height="30" rx="15" /><text x="332" y="43.5" text-anchor="middle">CANCELLED</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="300" y="200" width="104" height="30" rx="15" /><text x="352" y="219.5" text-anchor="middle">SUPERSEDED</text></g>
+                  <g class="lg-note"><rect x="414" y="196" width="98" height="38" rx="8" /><text x="463" y="212" text-anchor="middle">late result for v</text><text x="463" y="226" text-anchor="middle">is discarded</text></g>
+                </svg>
+              </div>
+            </div>
+
+            <!-- Delivery -->
+            <div class="module" role="tabpanel" id="panel-delivery" aria-labelledby="tab-delivery" hidden>
+              <div class="module__text">
+                <h4>From done to heard</h4>
+                <p>
+                  Suppose the weather report starts playing and the user cuts in after three words to change the
+                  game. If the system marks the weather as delivered, the user never hears it and the assistant
+                  believes it has answered. Delivery keeps the two events apart.
+                </p>
+                <p>
+                  Every time playback is cleared, the runtime opens a new <b>generation epoch</b>, and audio from an
+                  older epoch is dropped on arrival. The client reports what it actually played as <b>receipts</b>,
+                  and only a complete receipt in the current epoch moves a task from COMPLETED to DELIVERED.
+                  Stopping the voice is not cancelling: the task keeps its result, so the user can ask for it again.
+                </p>
+                <ul class="module__stats">
+                  <li><b>0</b><span>false deliveries in 240 race runs; 36 once receipts are replaced by &ldquo;audio generated&rdquo;</span></li>
+                </ul>
+              </div>
+              <div class="module__visual">
+                <div class="receipts" aria-label="Three presentations of one result and what the receipts say about each">
+                  <div class="receipt">
+                    <span class="receipt__epoch">epoch 3</span>
+                    <span class="receipt__chunks"><i class="ok"></i><i class="ok"></i><i class="ok"></i><i class="ok"></i></span>
+                    <span class="receipt__result receipt__result--done">all heard &rarr; DELIVERED</span>
+                  </div>
+                  <div class="receipt">
+                    <span class="receipt__epoch">epoch 4</span>
+                    <span class="receipt__chunks"><i class="ok"></i><i class="ok"></i><b class="receipt__stop">&ldquo;stop&rdquo;</b><i class="no"></i><i class="no"></i></span>
+                    <span class="receipt__result">rest dropped &rarr; stays COMPLETED</span>
+                  </div>
+                  <div class="receipt">
+                    <span class="receipt__epoch">epoch 5</span>
+                    <span class="receipt__chunks"><i class="ok ok--replay"></i><i class="ok ok--replay"></i><i class="ok ok--replay"></i><i class="ok ok--replay"></i></span>
+                    <span class="receipt__result receipt__result--done">replay on request &rarr; DELIVERED</span>
+                  </div>
+                  <p class="receipts__legend"><span><i class="ok"></i>chunk played in full</span><span><i class="no"></i>chunk never played</span></p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Memory -->
+            <div class="module" role="tabpanel" id="panel-memory" aria-labelledby="tab-memory" hidden>
+              <div class="module__text">
+                <h4>Durable facts without drift</h4>
+                <p>
+                  An assistant people use every day should remember what they tell it, but not everything they say.
+                  &ldquo;I usually spend forty dollars&rdquo; is worth keeping, &ldquo;only sixty tonight&rdquo; is a
+                  condition on tonight's task, and &ldquo;tell him I'll call back&rdquo; was not said to the assistant
+                  at all.
+                </p>
+                <p>
+                  Nothing enters the profile unless JEV agrees, at a threshold of 0.8, that the speaker is stating a
+                  lasting fact about themselves. Conditions that belong to a task stay on the task, only an explicit
+                  correction can replace a saved record, and the assistant says something is saved only after the
+                  write is confirmed.
+                </p>
+                <ul class="module__stats">
+                  <li><b>4.41</b><span>out of 5 on spoken conversational memory (ContextDialog), against 1.45 for QAA's default memory</span></li>
+                </ul>
+              </div>
+              <div class="module__visual">
+                <div class="memory-demo">
+                  <p class="memory-demo__said">&ldquo;For tonight, only sixty dollars is fine. Keep forty as my usual limit.&rdquo;</p>
+                  <div class="memory-demo__split" aria-hidden="true"><span></span><span></span></div>
+                  <div class="memory-demo__cards">
+                    <div class="mem-card mem-card--task">
+                      <span class="optag optag--refine">REFINE snacks v1</span>
+                      <b>Snack plan v2</b>
+                      <span>$60, for tonight only</span>
+                      <small>stays on the task</small>
+                    </div>
+                    <div class="mem-card mem-card--profile">
+                      <span class="optag optag--save">SAVE usual budget</span>
+                      <b>Usual snack budget</b>
+                      <span>$40</span>
+                      <small>profile, across sessions</small>
+                    </div>
+                  </div>
+                  <div class="memory-demo__ignored">
+                    <span>&ldquo;Tell him I'll call back.&rdquo;</span>
+                    <em>not addressed to the assistant: nothing is stored</em>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== One session, decision by decision ===== -->
+      <section class="section" id="session" aria-labelledby="session-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">One session, decision by decision</p>
+            <h2 class="section-title" id="session-title">Game night, as the Task Ledger saw it</h2>
+            <p class="section-lede">
+              A recorded five-minute session from the report. In one breath the user asks for a browser game,
+              tonight's weather in Shanghai and two technology headlines, then keeps talking while up to four tasks
+              run. Every utterance becomes one or more typed operations, and every operation names a live task
+              version. Hover an utterance to find it on the timeline; press play to hear it in the Game night demo.
+            </p>
+          </div>
+
+          <figure class="figure session reveal">
+            <div class="session__scroll">
+              <svg class="session__svg" id="session-svg" viewBox="0 0 1160 330" role="img" aria-label="Timeline of the game-night session: six task lanes with their versions over 270 seconds, and the eight user utterances that created, refined, saved or cancelled them."></svg>
+            </div>
+            <ul class="session__legend" aria-label="Legend">
+              <li><span class="sl-mark sl-mark--done">&#10003;</span> delivered, playback confirmed</li>
+              <li><span class="sl-mark sl-mark--ask">?</span> worker asks back</li>
+              <li><span class="sl-mark sl-mark--gone">&times;</span> cancelled</li>
+              <li><span class="sl-bar"></span> one task version</li>
+              <li><span class="sl-dot"></span> memory</li>
+            </ul>
+            <ol class="utterances" id="utterances"></ol>
+            <figcaption>
+              <strong>Figure 1 of the report, made interactive.</strong> The game goes through four versions, the
+              Python question gets a follow-up, a one-night budget of $60 leaves the usual $40 in memory untouched,
+              and the cancellation removes the welcome sign and nothing else. Timeline times are seconds into the
+              session the figure was drawn from; the Game night video is a recording of the same script, so each
+              play button jumps to where that line is said there.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ===== Results ===== -->
+      <!-- Every number below is copied from the tables of the report (Tables 2 to 7). -->
+      <section class="section section--soft" id="results" aria-labelledby="results-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Results</p>
+            <h2 class="section-title" id="results-title">The harness alone makes the agent better</h2>
+            <p class="section-lede">
+              Three questions. Does the harness by itself make a voice agent better, with everything else held
+              fixed? How does it compare with the strongest published voice systems? And why does it work,
+              mechanism by mechanism?
+            </p>
+          </div>
+
+          <!-- 1. paired comparison -->
+          <article class="result-block reveal" id="paired">
+            <header class="result-block__head">
+              <span class="result-block__n">1</span>
+              <div>
+                <h3>Same front model, same back end, only the harness changes</h3>
+                <p>
+                  Each pair keeps the front model, the admission path and the DeepSeek-V4-Flash back end fixed and
+                  swaps Qwen Audio Agent (QAA) for Jarvis, so every difference comes from what happens to a turn
+                  after it is admitted. Jarvis never trails QAA on any benchmark, domain or task category.
+                </p>
+              </div>
+            </header>
+            <div class="paired">
+              <div class="paired__main">
+                <div class="seg" role="tablist" aria-label="Metric" id="paired-tabs">
+                  <button type="button" role="tab" data-metric="tau" aria-selected="true"><span class="nocaps">&tau;</span>-Voice tasks solved</button>
+                  <button type="button" role="tab" data-metric="fdb3" aria-selected="false" tabindex="-1">FDB-v3 passes</button>
+                  <button type="button" role="tab" data-metric="fdb2" aria-selected="false" tabindex="-1">FDB-v2 task score</button>
+                </div>
+                <div class="paired__chart" id="paired-chart" role="tabpanel" aria-live="polite"></div>
+                <p class="paired__note" id="paired-note"></p>
+              </div>
+              <ul class="paired__facts">
+                <li><b>97 <small>vs 68</small></b><span>FDB-v3 recordings that get an audible response on Venus-Audio. An admitted request is answered, asked about or reported as failed, never silently dropped.</span></li>
+                <li><b>137 <small>vs 0</small></b><span>of the hardest <span class="nocaps">&tau;</span>-Voice tasks solved, the ones that must write to the database, such as rebooking a flight. QAA solves none on any front model.</span></li>
+                <li><b>12.9 s <small>vs 14.2 s</small></b><span>median task-completion time on FDB-v3. None of the gain costs time.</span></li>
+              </ul>
+            </div>
+            <details class="table-details">
+              <summary><span>Full table: harnesses on the same front model (Table 2)</span></summary>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th rowspan="2">Front model</th><th rowspan="2" class="key">Harness</th><th colspan="4"><span class="nocaps">&tau;</span>-Voice (solved)</th><th colspan="2">FDB-v3</th><th>FDB-v2</th></tr>
+                    <tr><th>Airline</th><th>Retail</th><th>Telecom</th><th>Total</th><th>Exact</th><th>Semantic</th><th>Task score</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td rowspan="3">Venus-Audio</td><td class="key">Native harness</td><td>17&dagger;</td><td>6&dagger;</td><td>0&dagger;</td><td>23&dagger;</td><td>0</td><td>0</td><td>3.09</td></tr>
+                    <tr><td class="key">QAA</td><td>23</td><td>6</td><td>0</td><td>29</td><td>41</td><td>59</td><td>2.57</td></tr>
+                    <tr class="is-ours"><td class="key">Jarvis</td><td>35</td><td>77</td><td>75</td><td>187</td><td>51</td><td>63</td><td>3.36</td></tr>
+                    <tr class="group-start"><td rowspan="2">MiniCPM-o 4.5</td><td class="key">QAA</td><td>23</td><td>6</td><td>0</td><td>29</td><td>40</td><td>56</td><td>2.98</td></tr>
+                    <tr class="is-ours"><td class="key">Jarvis</td><td>23</td><td>6</td><td>9</td><td>38</td><td>50</td><td>63</td><td>3.28</td></tr>
+                    <tr class="group-start"><td rowspan="2">VoiceChat-11B</td><td class="key">QAA</td><td>1</td><td>1</td><td>0</td><td>2</td><td>26</td><td>38</td><td>2.44</td></tr>
+                    <tr class="is-ours"><td class="key">Jarvis</td><td>23</td><td>6</td><td>4</td><td>33</td><td>34</td><td>50</td><td>2.84</td></tr>
+                    <tr class="group-label"><td colspan="9">Other full-duplex systems with their own runtimes</td></tr>
+                    <tr><td>MoshiRAG</td><td class="key">Native retrieval</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3.08</td></tr>
+                    <tr><td>Gander</td><td class="key">Native runtime&Dagger;</td><td>23</td><td>6</td><td>0</td><td>29</td><td>5</td><td>6</td><td>3.16</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                <span class="nocaps">&tau;</span>-Voice reports solved tasks out of 278, FDB-v3 passes out of 100 under exact and
+                semantic matching, and FDB-v2 the mean task score over 300 task and pace pairs. All rows share one
+                judge. &dagger;Earlier protocol, counted over the 42, 111 and 104 episodes that completed.
+                &Dagger;Released runtime with a DeepSeek-V4-Flash worker in place of its Codex back end.
+              </p>
+            </details>
+          </article>
+
+          <!-- 2. leaderboards -->
+          <article class="result-block reveal" id="leaderboards">
+            <header class="result-block__head">
+              <span class="result-block__n">2</span>
+              <div>
+                <h3>Against leading voice systems</h3>
+                <p>
+                  Jarvis-Audio reaches 69% Pass@1 on Full-Duplex-Bench v3, nine points above GPT-Realtime and 21
+                  above the Venus-Audio model it runs on, and the margin grows with difficulty: on hard scenarios it
+                  passes 56.7% against 43.3%. On the public <span class="nocaps">&tau;</span>-Voice leaderboard it beats every realtime speech
+                  model. The two systems above it follow the same fast-and-slow design on proprietary frontier back
+                  ends; Jarvis gets close with an open 9B front model and a flash-tier back end.
+                </p>
+              </div>
+            </header>
+            <div class="boards">
+              <div class="board">
+                <h4><span>Full-Duplex-Bench v3</span> <span>Pass@1, %</span></h4>
+                <ol class="board__rows" id="board-fdb3"></ol>
+              </div>
+              <div class="board">
+                <h4><span><span class="nocaps">&tau;</span>-Voice public leaderboard</span> <span>macro task success, %</span></h4>
+                <ol class="board__rows" id="board-tau"></ol>
+                <p class="board__legend"><i></i> realtime front end with a proprietary reasoning back end</p>
+              </div>
+            </div>
+            <details class="table-details">
+              <summary><span>Full table: Full-Duplex-Bench v3, all metrics (Table 3)</span></summary>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>System</th><th>Tool F1 &uarr;</th><th>Arg. acc. &uarr;</th><th>Resp. qual. &uarr;</th><th>Pass@1 &uarr;</th><th>Take-turn &uarr;</th><th>Interrupt &darr;</th><th>Filler &darr;</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="group-label"><td colspan="8">Commercial and cascaded systems</td></tr>
+                    <tr><td>GPT-Realtime</td><td>0.876</td><td>0.680</td><td>0.792</td><td>0.600</td><td>96.0</td><td>13.5</td><td>16.9</td></tr>
+                    <tr><td>Gemini Live 3.1</td><td>0.817</td><td>0.588</td><td>0.718</td><td>0.540</td><td>78.0</td><td>19.2</td><td>31.7</td></tr>
+                    <tr><td>Gemini Live 2.5</td><td>0.786</td><td>0.593</td><td>0.554</td><td>0.490</td><td>92.0</td><td>14.1</td><td><b>8.9</b></td></tr>
+                    <tr><td>Cascaded (Whisper, GPT-4o, TTS)</td><td>0.803</td><td>0.562</td><td>0.600</td><td>0.450</td><td><b>100.0</b></td><td>33.0</td><td>26.9</td></tr>
+                    <tr><td>Grok</td><td>0.797</td><td>0.542</td><td>0.617</td><td>0.430</td><td>94.0</td><td>25.5</td><td>44.3</td></tr>
+                    <tr><td>Ultravox v0.7</td><td>0.794</td><td>0.513</td><td>0.510</td><td>0.410</td><td>96.0</td><td>47.9</td><td>88.0</td></tr>
+                    <tr class="group-label"><td colspan="8">Open full-duplex models and agents</td></tr>
+                    <tr><td>Venus-Audio</td><td>0.850</td><td>0.542</td><td>&ndash;</td><td>0.480</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+                    <tr><td>Venus-Omni</td><td>0.860</td><td>0.531</td><td>&ndash;</td><td>0.430</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+                    <tr><td>VoiceChat-11B</td><td>0.825</td><td>0.422</td><td>&ndash;</td><td>0.330</td><td>&ndash;</td><td>&ndash;</td><td>&ndash;</td></tr>
+                    <tr><td>Gander</td><td>0.759</td><td>0.503</td><td>0.490</td><td>0.400</td><td><b>100.0</b></td><td>8.0</td><td>51.6</td></tr>
+                    <tr class="is-ours"><td>Jarvis-Audio</td><td><b>0.927</b></td><td><b>0.783</b></td><td><b>0.850</b></td><td><b>0.690</b></td><td><b>100.0</b></td><td><b>7.0</b></td><td>20.4</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                The first four metrics are fractions and the last three are percentages. Baseline numbers come from
+                the benchmark release, the Realtime-Venus report and the Gander report. Bold marks the best value in
+                each column, and &ndash; means not reported.
+              </p>
+            </details>
+            <details class="table-details">
+              <summary><span>Full table: <span class="nocaps">&tau;</span>-Voice by domain (Table 4)</span></summary>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>System</th><th>Retail &uarr;</th><th>Airline &uarr;</th><th>Telecom &uarr;</th><th>Macro avg. &uarr;</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="group-label"><td colspan="5">Realtime speech models</td></tr>
+                    <tr><td>GPT-Realtime 1.0</td><td>35.96</td><td>36.00</td><td>19.30</td><td>30.42</td></tr>
+                    <tr><td>GPT-Realtime 1.5</td><td>44.70</td><td>40.00</td><td>21.10</td><td>35.27</td></tr>
+                    <tr><td>GPT-Realtime 2</td><td>47.37</td><td>58.00</td><td>21.93</td><td>42.43</td></tr>
+                    <tr><td>Gemini 2.5 Flash Live</td><td>29.80</td><td>30.00</td><td>17.50</td><td>25.77</td></tr>
+                    <tr><td>Gemini 3.1 Flash Live (thinking high)</td><td>45.61</td><td>64.00</td><td>21.93</td><td>43.85</td></tr>
+                    <tr><td>Grok Voice Fast 1.0</td><td>38.60</td><td>36.00</td><td>40.40</td><td>38.33</td></tr>
+                    <tr><td>Grok Voice Think Fast 1.0</td><td>62.28</td><td>66.00</td><td><b>73.68</b></td><td>67.32</td></tr>
+                    <tr><td>Grok Voice Think Fast 2.0</td><td>59.65</td><td>56.00</td><td>71.93</td><td>62.53</td></tr>
+                    <tr><td>Qwen3.5-Omni-Plus Realtime</td><td>46.49</td><td>54.00</td><td>60.53</td><td>53.67</td></tr>
+                    <tr class="group-label"><td colspan="5">Cascaded pipeline</td></tr>
+                    <tr><td>LiveKit (Nova-3, GPT-4.1, Aura)</td><td>28.95</td><td>48.00</td><td>16.67</td><td>31.20</td></tr>
+                    <tr class="group-label"><td colspan="5">Realtime front end with a proprietary reasoning back end</td></tr>
+                    <tr class="is-muted"><td>GPT Live 1 with GPT-6 Astra</td><td>78.95</td><td>82.00</td><td>84.21</td><td>81.72</td></tr>
+                    <tr class="is-muted"><td>Pine Voice Preview</td><td>70.18</td><td>70.00</td><td>85.96</td><td>75.38</td></tr>
+                    <tr class="is-ours"><td>Jarvis-Audio (open 9B front, DeepSeek-V4-Flash)</td><td><b>67.54</b></td><td><b>70.00</b></td><td>70.18</td><td><b>69.24</b></td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <p class="table-note">
+                Task success in percent on the regular tasks. Other systems are the standard voice submissions on the
+                public leaderboard. Bold marks the best value among systems without a proprietary reasoning back end.
+              </p>
+            </details>
+          </article>
+
+          <!-- 3. mechanisms -->
+          <article class="result-block reveal" id="mechanisms">
+            <header class="result-block__head">
+              <span class="result-block__n">3</span>
+              <div>
+                <h3>Why it works</h3>
+                <p>
+                  A benchmark caller rarely changes a request while the work on it is still running, so the
+                  mechanisms are tested directly: scripted races against the real runtime, decision timing against
+                  general LLM controllers, and spoken memory.
+                </p>
+              </div>
+            </header>
+            <div class="mech-grid">
+              <section class="mech" id="race-card" aria-labelledby="race-title">
+                <p class="mech__kicker">Task Ledger checks</p>
+                <h4 id="race-title">Each check removes a different failure</h4>
+                <p class="mech__text">80 race scripts inject a refinement, a cancellation, a correction during planning, a task switch or an interruption during playback, three runs each against the real runtime.</p>
+                <div class="race" id="race-chart"></div>
+              </section>
+              <section class="mech" id="jev-card" aria-labelledby="jev-title">
+                <p class="mech__kicker">Decision brain</p>
+                <h4 id="jev-title">JEV decides correctly, and in time</h4>
+                <p class="mech__text">Same options and context for all three controllers; 192 bilingual test cases, each called three times, then replayed in the runtime.</p>
+                <div class="ctrl" id="ctrl-chart"></div>
+              </section>
+              <section class="mech" id="memory-card" aria-labelledby="memory-title">
+                <p class="mech__kicker">Memory</p>
+                <h4 id="memory-title">Keeping what both speakers said</h4>
+                <p class="mech__text">80 fixed questions about 20 ContextDialog conversations, fed as real audio, scoring the answer that was actually played (1 to 5).</p>
+                <div class="memchart" id="memory-chart"></div>
+              </section>
+            </div>
+            <details class="table-details">
+              <summary><span>Full tables: races, controllers and memory (Tables 5 to 7)</span></summary>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <caption>Consistency under 80 race scripts, three runs each (Table 5)</caption>
+                  <thead>
+                    <tr><th>Runtime</th><th>Consistent runs &uarr;</th><th>Stale audio &darr;</th><th>Stale tool effect &darr;</th><th>False delivery &darr;</th><th>Gain of full runtime (pp)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr class="is-ours"><td>Jarvis, full runtime</td><td><b>240 / 240</b></td><td><b>0</b></td><td><b>0</b></td><td><b>0</b></td><td>&ndash;</td></tr>
+                    <tr><td>without result validity (I2)</td><td>168 / 240</td><td>72</td><td>0</td><td>0</td><td>+30.0 [15.0, 45.0]</td></tr>
+                    <tr><td>without plan freshness (I3)</td><td>168 / 240</td><td>72</td><td>72</td><td>0</td><td>+30.0 [15.0, 45.0]</td></tr>
+                    <tr><td>without playback receipts (I4)</td><td>204 / 240</td><td>0</td><td>0</td><td>36</td><td>+15.0 [3.8, 30.0]</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <caption>JEV against general LLM controllers (Table 6)</caption>
+                  <thead>
+                    <tr><th>Controller</th><th>Threshold</th><th>Median request (s) &darr;</th><th>In time, 1 s &uarr;</th><th>With fallback, 3.5 s &uarr;</th><th>Correct binding &uarr;</th><th>Stopped in time &uarr;</th><th>Replays with stale audio &darr;</th><th>Unchanged tasks kept &uarr;</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>DeepSeek-V4-Flash</td><td>0.95</td><td>1.57</td><td>0 / 576</td><td>465 / 576 (80.7%)</td><td>220 / 256</td><td>77 / 224</td><td>36</td><td>32 / 32</td></tr>
+                    <tr><td>Gemini 3.5 Flash</td><td>1.00</td><td>3.14</td><td>0 / 576</td><td>456 / 576 (79.2%)</td><td>160 / 256</td><td>9 / 224</td><td>96</td><td>32 / 32</td></tr>
+                    <tr class="is-ours"><td>JEV</td><td>0.43</td><td><b>0.30</b></td><td><b>524 / 576 (91.0%)</b></td><td><b>544 / 576 (94.4%)</b></td><td><b>252 / 256</b></td><td><b>150 / 224</b></td><td><b>4</b></td><td>32 / 32</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-wrap">
+                <table class="data-table">
+                  <caption>Spoken conversational memory on ContextDialog (Table 7)</caption>
+                  <thead>
+                    <tr><th>Harness and memory</th><th>Mean score &uarr;</th><th>Score &ge; 4 &uarr;</th><th>Evidence tokens</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td>QAA, default Markdown memory with automatic injection</td><td>1.45</td><td>6 / 80</td><td>55</td></tr>
+                    <tr class="is-ours"><td>Jarvis, JEV selection</td><td>4.19</td><td>61 / 80</td><td>700</td></tr>
+                    <tr class="is-ours"><td>Jarvis, hybrid dense and sparse retrieval</td><td><b>4.41</b></td><td><b>65 / 80</b></td><td>1013</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <!-- ===== Jarvis-Omni ===== -->
+      <section class="section section--omni" id="omni" aria-labelledby="omni-title">
+        <div class="container">
+          <div class="section-head reveal">
+            <p class="eyebrow">Jarvis-Omni</p>
+            <h2 class="section-title" id="omni-title">When evidence expires</h2>
+            <p class="section-lede">
+              In audio, the facts behind a decision are mostly in the user's words, and words do not change after
+              they are spoken. On a screen, facts change on their own: a teammate who was alive two seconds ago is
+              dead, and a low health bar is full again after a recall. Jarvis-Omni treats visual facts the way
+              Jarvis-Audio treats tasks, as state with a version and a lifetime, and checks them again before
+              anything based on them reaches the user.
+            </p>
+          </div>
+
+          <figure class="figure belief reveal" id="belief">
+            <div class="belief__bar">
+              <button type="button" class="belief__play" id="belief-play" aria-label="Pause the animation">
+                <svg class="belief__icon-pause" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor" /></svg>
+                <svg class="belief__icon-play" viewBox="0 0 24 24" width="16" height="16" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor" /></svg>
+              </button>
+              <input type="range" class="belief__scrub" id="belief-scrub" min="0" max="10" step="0.05" value="0" aria-label="Time in the scene, in seconds" />
+              <output class="belief__time" id="belief-time" for="belief-scrub">0.0 s</output>
+            </div>
+            <div class="belief__scroll">
+              <svg class="belief__svg" id="belief-svg" viewBox="0 0 1100 372" role="img" aria-label="Ten seconds of a match. Claims read from the screen carry validity windows. The teammate dies at 5.2 seconds, which invalidates the claim that the teammate is alive; the plan to push together, formed on that claim, is dropped before playback, and the assistant says hold, wait for backup. A later question about that advice is answered from a snapshot, marked as past evidence."></svg>
+            </div>
+            <ol class="belief__log" id="belief-log"></ol>
+            <figcaption>
+              <strong>Figure 7 of the report, animated.</strong> Claims read from the screen carry a validity window
+              and are invalidated by events such as a death or a camera change. Advice is checked against the Belief
+              State when it is ready, so a recommendation that rested on an expired claim is dropped and planned
+              again from the new state. Drag the slider to scrub through the scene.
+            </figcaption>
+          </figure>
+
+          <div class="omni-stats">
+            <div class="omni-stat reveal">
+              <b>23.7%<small> vs 1.0%</small></b>
+              <span>correct answers with the screen and without it, over 300 questions. Two blind reviews of the played audio and the recorded screen must both accept an answer.</span>
+            </div>
+            <div class="omni-stat reveal" style="--reveal-delay: 60ms">
+              <b>12,323 <small>&rarr;</small> 0 ms</b>
+              <span>of expired audio reaching the user when the evidence expires while the answer waits in the speech queue, without and with the validity check.</span>
+            </div>
+            <div class="omni-stat reveal" style="--reveal-delay: 120ms">
+              <b>75 <small>/ 96</small></b>
+              <span>gate decisions right on the fixed test set, with one missed action. The frozen control head of Venus-Omni gets 30 and misses 66.</span>
+            </div>
+            <div class="omni-stat reveal" style="--reveal-delay: 180ms">
+              <b>5.05 <small>&rarr;</small> 1.78 s</b>
+              <span>median time to the first spoken acknowledgment in paired live sessions, once the scene-aware gate is in place.</span>
+            </div>
+            <div class="omni-stat reveal" style="--reveal-delay: 240ms">
+              <b>&asymp;2.2 s</b>
+              <span>from the end of a tactical question to the start of the answer on the fast path (2.15 s in CS2, 2.23 s in LoL), never from a frame older than 3.5 s.</span>
+            </div>
+          </div>
+
+          <div class="omni-split">
+            <section class="omni-panel reveal" aria-labelledby="omni-screen-title">
+              <h3 id="omni-screen-title">The answers rest on the screen</h3>
+              <p>Removing only the screen frames that enter the runtime, in two independent cohorts of recorded game sessions.</p>
+              <div class="hbars">
+                <p class="hbars__group">First cohort, 16 uploads, 300 questions</p>
+                <div class="hbar hbar--ours" style="--w: 23.7%"><span>with screen</span><i></i><b>23.7%</b></div>
+                <div class="hbar hbar--base" style="--w: 1%"><span>without</span><i></i><b>1.0%</b></div>
+                <p class="hbars__group">Second cohort, 12 new uploads, 120 questions</p>
+                <div class="hbar hbar--ours" style="--w: 25%"><span>with screen</span><i></i><b>25.0%</b></div>
+                <div class="hbar hbar--base" style="--w: 2.5%"><span>without</span><i></i><b>2.5%</b></div>
+              </div>
+              <p class="omni-panel__foot">Silent controls stay silent either way: 60 / 60 and 24 / 24. An audit of 787 model inputs found no frame from the future of its decision.</p>
+            </section>
+            <section class="omni-panel reveal" style="--reveal-delay: 80ms" aria-labelledby="omni-fresh-title">
+              <h3 id="omni-fresh-title">Expired evidence stays off the speaker</h3>
+              <p>Admitted answers played through the real speech scheduler and browser player, with their evidence set to expire. Expired audio in milliseconds, four replays each.</p>
+              <div class="hbars">
+                <p class="hbars__group">Evidence expires before playback</p>
+                <div class="hbar hbar--bad" style="--w: 100%"><span>no check</span><i></i><b>12,323</b></div>
+                <div class="hbar hbar--ours" style="--w: 0%"><span>Jarvis-Omni</span><i></i><b>0</b></div>
+                <p class="hbars__group">Evidence expires during playback</p>
+                <div class="hbar hbar--bad" style="--w: 80.7%"><span>no check</span><i></i><b>9,947</b></div>
+                <div class="hbar hbar--ours" style="--w: 0%"><span>Jarvis-Omni</span><i></i><b>0.125</b></div>
+              </div>
+              <p class="omni-panel__foot">0.125 ms is three audio samples. Utterances whose evidence stays valid play in full either way.</p>
+            </section>
+            <section class="omni-panel reveal" style="--reveal-delay: 160ms" aria-labelledby="omni-gate-title">
+              <h3 id="omni-gate-title">A gate that also watches</h3>
+              <p>The gate combines microphone and screen features with the dialogue so far, and adds a SCENE action to speak up unprompted. Fixed test set of 96 episodes.</p>
+              <div class="stack">
+                <div class="stack__row"><span>Frozen Venus-Omni</span><div class="stack__bar"><i class="ok" style="--w: 31.25%"></i><i class="miss" style="--w: 68.75%"></i></div><b>30</b></div>
+                <div class="stack__row"><span>Previous adapter</span><div class="stack__bar"><i class="ok" style="--w: 69.8%"></i><i class="miss" style="--w: 22.9%"></i><i class="other" style="--w: 7.3%"></i></div><b>67</b></div>
+                <div class="stack__row stack__row--ours"><span>Contextual GRPO adapter</span><div class="stack__bar"><i class="ok" style="--w: 78.1%"></i><i class="miss" style="--w: 1.04%"></i><i class="other" style="--w: 20.8%"></i></div><b>75</b></div>
+              </div>
+              <p class="stack__legend"><span><i class="ok"></i>correct</span><span><i class="miss"></i>missed action</span><span><i class="other"></i>acted early or in the wrong branch</span></p>
+              <p class="omni-panel__foot">In paired live sessions, requests whose first answer never reached the speaker fall from 7 to 2 out of 18.</p>
+            </section>
+          </div>
+
+          <details class="table-details reveal">
+            <summary><span>The two instances side by side</span></summary>
+            <div class="table-wrap">
+              <table class="data-table data-table--text">
+                <thead>
+                  <tr><th></th><th>Jarvis-Audio</th><th>Jarvis-Omni</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td>Front model</td><td>Realtime-Venus-Audio, 9B</td><td>Venus-Omni</td></tr>
+                  <tr><td>Native Gate</td><td>Causal audio prefixes, three actions</td><td>Causal audio and screen features with dialogue context, plus a SCENE action for proactive turns</td></tr>
+                  <tr><td>Decision brain</td><td>JEV, text</td><td>JEV-Omni, 12B, text and images</td></tr>
+                  <tr><td>Perception state</td><td>ASR observer</td><td>ASR observer, Evidence Timeline and Belief State</td></tr>
+                  <tr><td>Memory</td><td>Profile and task records</td><td>Adds in-match events and game knowledge</td></tr>
+                  <tr class="group-label"><td colspan="3">Shared: JEV controller, Task Ledger, workers, Delivery and playback control</td></tr>
+                  <tr><td>Main evidence</td><td><span class="nocaps">&tau;</span>-Voice, Full-Duplex-Bench v2 and v3, ContextDialog, race and control studies, daily use, PvZ, Luanti</td><td>Gate test set, visual and playback ablations, live CS2 and League of Legends sessions</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </details>
+
+          <div class="omni-cta reveal">
+            <p>See it on a live screen</p>
+            <a class="button button--primary" href="#demo-omni-cs2" data-demo="omni-cs2">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+              <span>CS2 screen companion</span>
+            </a>
+            <a class="button button--primary button--violet" href="#demo-omni-lol" data-demo="omni-lol">
+              <span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z" /></svg></span>
+              <span>League of Legends screen companion</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== Citation ===== -->
+      <!-- The report is not public yet, so there is no reference to give.
+           Drop the BibTeX entry in below once there is one. -->
+      <section class="section section--soft" id="citation" aria-labelledby="citation-title">
+        <div class="container content">
+          <div class="section-head">
+            <p class="eyebrow">Citation</p>
+            <h2 class="section-title" id="citation-title">Citation</h2>
+            <p class="section-lede">Citation details will be posted here once the technical report is available.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer__logos">
+          <img src="assets/brand/cuhksz.png" data-logo="cuhksz" alt="The Chinese University of Hong Kong, Shenzhen" />
+          <img src="assets/brand/hunyuan-wordmark.png" data-logo="hunyuan" alt="Tencent HY" />
+        </div>
+        <p class="footer__legal">
+          Jarvis is a research project by The Chinese University of Hong Kong, Shenzhen and Tencent Hunyuan.
+          This is an independent project page maintained by the authors, not an official website of either
+          organization.<br />
+          The CS2 and League of Legends footage comes from recorded public matches replayed at original speed.
+          Plants vs. Zombies, Counter-Strike 2 and League of Legends are trademarks of their respective owners.
+        </p>
+      </div>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+  </body>
+</html>

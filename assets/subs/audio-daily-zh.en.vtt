@@ -1,0 +1,157 @@
+WEBVTT
+
+1
+00:00:00.300 --> 00:00:03.300 line:0 position:50% size:84% align:center
+User: Hi Jarvis, can you chat with me for a bit?
+
+2
+00:00:05.100 --> 00:00:06.800 line:0 position:50% size:84% align:center
+Jarvis: Hi! What would you like to talk about?
+
+3
+00:00:08.500 --> 00:00:11.900 line:0 position:50% size:84% align:center
+User: Friends are coming over tonight, and I want a light little game.
+
+4
+00:00:11.900 --> 00:00:15.600 line:0 position:50% size:84% align:center
+User: Co-op or head-to-head: which breaks the ice better? One sentence.
+
+5
+00:00:17.200 --> 00:00:20.200 line:0 position:50% size:84% align:center
+Jarvis: Co-op party games like Werewolf or Who's the Spy break the ice better,
+
+6
+00:00:20.200 --> 00:00:23.400 line:0 position:50% size:84% align:center
+Jarvis: because they quickly build trust and get people talking.
+
+7
+00:00:24.800 --> 00:00:28.900 line:0 position:50% size:84% align:center
+User: Make me a web mini-game where you catch stars.
+
+8
+00:00:28.900 --> 00:00:32.600 line:0 position:50% size:84% align:center
+User: Single-player for now, 60 seconds a round: catch stars to score, dodge the meteors.
+
+9
+00:00:32.600 --> 00:00:36.700 line:0 position:50% size:84% align:center
+User: Also check tonight's weather in Shanghai, and find two recent tech news stories.
+
+10
+00:00:41.900 --> 00:00:42.800 line:0 position:50% size:84% align:center
+User: Wait.
+
+11
+00:00:43.500 --> 00:00:46.300 line:0 position:50% size:84% align:center
+User: Make the game two-player co-op instead of single-player.
+
+12
+00:00:46.300 --> 00:00:48.700 line:0 position:50% size:84% align:center
+User: Keep checking the weather and the news.
+
+13
+00:00:52.500 --> 00:00:54.600 line:0 position:50% size:84% align:center
+Jarvis: OK, I'll go with the latest request.
+
+14
+00:00:56.700 --> 00:01:02.300 line:0 position:50% size:84% align:center
+Jarvis: Shanghai is around 25 °C tonight, possibly with light rain, turning cloudy later.
+
+15
+00:01:04.700 --> 00:01:07.800 line:0 position:50% size:84% align:center
+Jarvis: Is the two-player co-op on one screen, or online?
+
+16
+00:01:07.900 --> 00:01:13.700 line:0 position:50% size:84% align:center
+User: One phone, no login, no download. Please keep building it.
+
+17
+00:01:17.700 --> 00:01:19.900 line:0 position:50% size:84% align:center
+Jarvis: OK, I'll go with the latest request.
+
+18
+00:01:21.800 --> 00:01:25.800 line:0 position:50% size:84% align:center
+Jarvis: Should both players share one total score, with separate lives each?
+
+19
+00:01:27.800 --> 00:01:32.600 line:0 position:50% size:84% align:center
+Jarvis: Two tech stories: OpenAI's models accessed government websites, including the U.S. Census and the SEC.
+
+20
+00:01:32.600 --> 00:01:36.900 line:0 position:50% size:84% align:center
+Jarvis: And Danantara and Thales are exploring AI and technology investment in Indonesia.
+
+21
+00:01:38.100 --> 00:01:40.700 line:0 position:50% size:84% align:center
+User: Sure, go with what you suggested.
+
+22
+00:01:41.200 --> 00:01:44.200 line:0 position:50% size:84% align:center
+User: Also, make a separate countdown page with big numbers.
+
+23
+00:01:49.700 --> 00:01:53.000 line:0 position:50% size:84% align:center
+User: Cancel the countdown page. Keep the game going.
+
+24
+00:01:56.800 --> 00:01:58.800 line:0 position:50% size:84% align:center
+Jarvis: That task has been cancelled.
+
+25
+00:01:59.800 --> 00:02:01.400 line:0 position:50% size:84% align:center
+User: I pasted a few lines of code.
+
+26
+00:02:01.600 --> 00:02:05.000 line:0 position:50% size:84% align:center
+User: I only changed the second list. Why did the first one change too?
+
+27
+00:02:12.800 --> 00:02:16.400 line:0 position:50% size:84% align:center
+Jarvis: Because both variables point to the same list object.
+
+28
+00:02:20.800 --> 00:02:25.300 line:0 position:50% size:84% align:center
+User: What's the simplest way to keep the two lists independent?
+
+29
+00:02:31.000 --> 00:02:33.400 line:0 position:50% size:84% align:center
+Jarvis: OK, I'll go with the latest request.
+
+30
+00:02:34.100 --> 00:02:37.300 line:0 position:50% size:84% align:center
+User: Add a mute button to the game. Don't change anything else.
+
+31
+00:02:42.100 --> 00:02:44.300 line:0 position:50% size:84% align:center
+Jarvis: OK, I'll go with the latest request.
+
+32
+00:02:47.100 --> 00:02:51.400 line:0 position:50% size:84% align:center
+Jarvis: The simplest way is to copy the list with a slice.
+
+33
+00:02:53.200 --> 00:02:57.800 line:0 position:50% size:84% align:center
+Jarvis: Two-player Star Catcher is updated as requested. Open it and give it a try.
+
+34
+00:02:59.200 --> 00:03:01.800 line:0 position:50% size:84% align:center
+User: Open it. Let me try.
+
+35
+00:03:14.000 --> 00:03:18.900 line:0 position:50% size:84% align:center
+User: Give me a recap: what's left at the end, and what did we cancel?
+
+36
+00:03:23.400 --> 00:03:27.400 line:0 position:50% size:84% align:center
+Jarvis: Finished: the weather, the tech news, the code answer and the mute button.
+
+37
+00:03:27.400 --> 00:03:31.200 line:0 position:50% size:84% align:center
+Jarvis: The countdown page was cancelled.
+
+38
+00:03:35.100 --> 00:03:37.800 line:0 position:50% size:84% align:center
+User: Great. Now we've got something to play tonight.
+
+39
+00:03:38.200 --> 00:03:40.200 line:0 position:50% size:84% align:center
+User: Thank you, Jarvis.
