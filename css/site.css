@@ -851,6 +851,7 @@ button {
   color: var(--ink-soft);
   font-size: 1.08rem;
   line-height: 1.65;
+  text-wrap: pretty;
 }
 
 .publication-links {
@@ -2614,37 +2615,38 @@ text.gp-band-label.gp-band--done {
   height: auto;
   font-family: var(--font-display);
 }
+/* Kept in step with the report's Figure 6: each fill is its stroke colour at
+   12% on white, each label that colour at 70% on black. */
 .lg-arrows path {
-  stroke: #5b6478;
+  stroke: #797f87;
   stroke-width: 1.3;
 }
 .lg-arrows .lg-arrow--teal {
-  stroke: #14998a;
+  stroke: #107a6e;
   stroke-width: 2;
 }
 .lg-arrows .lg-arrow--blue {
-  stroke: #3b7ddd;
+  stroke: #5d83c1;
   stroke-dasharray: 4 3;
+}
+.lg-arrows .lg-arrow--cancel {
+  stroke: #e17572;
 }
 .lg-arrows .lg-arrow--coral {
   stroke: #d9534f;
-  stroke-dasharray: 2 2;
+  stroke-dasharray: 1.5 2;
 }
 .lg-labels text {
   font-size: 10px;
-  fill: #5b6478;
+  fill: #4c545f;
 }
 .lg-labels .lg-label--mono {
   font-family: var(--font-mono);
   font-size: 9.5px;
-  fill: #16233d;
+  fill: #414955;
 }
-.lg-labels .lg-label--teal {
-  font-weight: 700;
-  fill: #0b6b60;
-}
-.lg-labels .lg-label--blue {
-  fill: #3b7ddd;
+.lg-var {
+  font-style: italic;
 }
 .lg-state rect {
   stroke-width: 1.3;
@@ -2655,47 +2657,43 @@ text.gp-band-label.gp-band--done {
   letter-spacing: 0.03em;
 }
 .lg-state--blue rect {
-  fill: #e6eefc;
-  stroke: #3b7ddd;
+  fill: #e3eaf4;
+  stroke: #174ea6;
 }
 .lg-state--blue text {
-  fill: #174ea6;
+  fill: #103774;
 }
 .lg-state--teal rect {
-  fill: #e1f4f1;
+  fill: #e3f3f1;
   stroke: #14998a;
 }
 .lg-state--teal text {
-  fill: #0b6b60;
+  fill: #0e6b61;
 }
 .lg-state--done rect {
-  fill: #14998a;
-  stroke: #14998a;
-}
-.lg-state--done text {
-  fill: #fff;
+  stroke-width: 2.2;
 }
 .lg-state--amber rect {
-  fill: #fdf1dd;
+  fill: #fcf3e6;
   stroke: #e39b2d;
 }
 .lg-state--amber text {
-  fill: #a86a12;
+  fill: #9f6d20;
 }
 .lg-state--slate rect {
-  fill: #eef2f6;
-  stroke: #94a3b8;
+  fill: #eceef1;
+  stroke: #64748b;
 }
 .lg-state--slate text {
-  fill: #475569;
+  fill: #465161;
 }
 .lg-note rect {
-  fill: #fbe9e8;
+  fill: #f8dcdb;
   stroke: #d9534f;
 }
 .lg-note text {
   font-size: 9.5px;
-  fill: #b23a35;
+  fill: #ae423f;
 }
 
 /* playback receipts */

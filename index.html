@@ -3,15 +3,15 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Jarvis &mdash; Coordinating Fast Talk and Slow Work in Full-Duplex Audio and Omni Agents</title>
+    <title>Jarvis &mdash; Coordination Deserves a Brain of Its Own in Agentic Interactive Models</title>
     <meta
       name="description"
-      content="Jarvis is a slow-brain harness for full-duplex voice agents. Users keep talking while work runs in the background; Jarvis turns every turn into a typed, version-checked operation and counts an answer as delivered only once it has been heard. Watch seven recorded sessions."
+      content="Jarvis is a slow-brain harness for agentic interactive models. Users keep talking while work runs in the background; Jarvis turns every change to that work into a typed, version-checked operation and counts an answer as delivered only once it has been heard. Watch seven recorded sessions."
     />
-    <meta property="og:title" content="Jarvis — Coordinating Fast Talk and Slow Work in Full-Duplex Audio and Omni Agents" />
+    <meta property="og:title" content="Jarvis — Coordination Deserves a Brain of Its Own in Agentic Interactive Models" />
     <meta
       property="og:description"
-      content="A slow-brain harness for full-duplex voice agents: typed decisions over versioned tasks, delivery confirmed by playback receipts, and visual evidence that expires."
+      content="A slow-brain harness for agentic interactive models: typed decisions over versioned tasks, delivery confirmed by playback receipts, and visual evidence that expires."
     />
     <meta property="og:image" content="assets/posters/audio-daily-en.jpg" />
     <link rel="icon" href="assets/brand/jarvis-mark.svg" type="image/svg+xml" />
@@ -152,13 +152,14 @@
         </div>
 
         <h1 class="title publication-title">
-          <span class="publication-title__brand">Jarvis</span>: Coordinating Fast Talk and Slow Work in
-          Full-Duplex Audio and Omni Agents
+          <span class="publication-title__brand">Jarvis</span>: Coordination Deserves a Brain of Its Own in
+          Agentic Interactive Models
         </h1>
         <p class="publication-subtitle">
-          A slow-brain harness for full-duplex voice agents. Users keep talking while the work runs in the
-          background; Jarvis turns every turn into a typed operation on a versioned task, checks it against
-          the current state before it acts, and counts an answer as delivered only once the user has heard it.
+          A slow-brain harness for agentic interactive models. Users keep talking while the work runs in the
+          background; Jarvis turns every change to that work into a typed operation on a versioned task, checks
+          it against the current state before it acts, and counts an answer as delivered only once the user has
+          heard it.
         </p>
 
         <div class="publication-links">
@@ -293,29 +294,30 @@
           <div class="abstract-grid">
             <div class="content abstract reveal">
               <p>
-                Full-duplex speech models can listen and talk at the same time, and voice agents increasingly pair
-                them with a stronger model that works in the background. This split gives an agent room to think,
-                but it raises a problem that neither model solves on its own. <strong>The conversation does not
-                wait for the work.</strong> Users refine a request, cancel it or ask something new while tasks are
-                still running, and results come back after the request behind them has changed.
+                Interactive models listen and speak at once, but keeping pace with a conversation leaves them little
+                capacity for tool use, multi-step reasoning or memory. Agentic interactive models therefore keep such
+                a model in front and hand that work to a slow brain in the background, a larger model or a full agent
+                harness. This split raises a coordination problem, because <strong>the conversation goes on while
+                the work runs.</strong> By the time a result is ready, the user may have refined the request,
+                cancelled it or moved on. Neither side can handle this alone, since the front model knows the
+                conversation but not the tasks, while the back end knows its task but not the conversation.
               </p>
               <p>
-                <strong>Jarvis</strong> is a slow-brain harness that gives this coordination a brain of its own. A
-                small adapter on the front model's own control tokens decides when a turn should go to the slow
-                brain. <strong>JEV</strong>, a judgment model that answers typed questions instead of writing free
-                text, then decides what the turn means for the work in flight. It chooses among concrete operations
-                that the runtime reads off the <strong>Task Ledger</strong>, a versioned record of every request,
-                such as refining the second version of a game. Every choice is therefore executable, and a choice
-                made against an outdated version is simply rejected. An answer counts as delivered only when
-                playback receipts show that the user heard it, and a gated memory keeps lasting facts apart from
-                passing remarks.
+                <strong>Jarvis</strong> is a slow-brain harness that gives coordination a brain of its own. Each
+                request becomes a versioned task in the <strong>Task Ledger</strong>, and each change to it becomes
+                an operation on the ledger, such as refining version 2 of a game. The harness follows one rule,
+                <em>models judge, code enforces</em>. A small adapter on the front model's control tokens judges
+                when a turn should reach the slow brain. <strong>JEV</strong>, a decision model that sees both the
+                conversation and the tasks, then picks the turn's operation from options the runtime builds from the
+                ledger. Code enforces the outcome, rejecting operations and results tied to a replaced version and
+                counting an answer as delivered only when playback receipts show the user heard it.
               </p>
               <p>
-                <strong>Jarvis-Audio</strong> runs on full-duplex speech models, and <strong>Jarvis-Omni</strong>
-                runs on an audio-visual model and treats what it sees as evidence that expires. With the front
-                model held fixed, replacing Qwen Audio Agent with Jarvis raises &tau;-Voice task success from 29 to
-                187 of 278 tasks, and Jarvis-Audio reaches 69% Pass@1 on Full-Duplex-Bench v3, ahead of
-                GPT-Realtime at 60%.
+                We build <strong>Jarvis-Audio</strong> on full-duplex speech models and <strong>Jarvis-Omni</strong>
+                on an audio-visual model. Since what the model sees can also change while the work runs, Jarvis-Omni
+                checks every visual fact again before speaking. With the front model and back end held fixed,
+                replacing Qwen Audio Agent with Jarvis raises &tau;-Voice task success from 29 to 187 of 278 tasks.
+                Jarvis-Audio reaches 69% Pass@1 on Full-Duplex-Bench v3, ahead of GPT-Realtime at 60%.
               </p>
             </div>
 
@@ -358,7 +360,7 @@
                   <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" /><path d="M12 7.5V12l3 2" /></svg>
                 </div>
                 <h4>Stale delivery</h4>
-                <p>The first draft of a game is presented after the user has already asked for a light theme.</p>
+                <p>The first draft of a game is presented after the user has already asked for a different theme.</p>
                 <a class="failure__fix" href="#race-card"><span>Prevented by</span> Task Ledger versions</a>
               </article>
               <article class="failure reveal" style="--reveal-delay: 60ms">
@@ -583,7 +585,7 @@
             <article class="principle reveal" style="--reveal-delay: 70ms">
               <span class="principle__n">02</span>
               <h3>Models judge, code enforces</h3>
-              <p>Questions that need understanding go to a model, but the model answers by choosing among operations the runtime prepared. The runtime then applies the choice and checks it against the current state.</p>
+              <p>Questions that need understanding go to a decision model, but the model answers by choosing among operations the runtime prepared. The runtime then applies the choice and checks it against the current state.</p>
             </article>
             <article class="principle reveal" style="--reveal-delay: 140ms">
               <span class="principle__n">03</span>
@@ -630,7 +632,6 @@
                 <ul class="module__stats">
                   <li><b>98.8%</b><span>first admissions at the right time and in the right branch (162 / 164)</span></li>
                   <li><b>0.07%</b><span>of the model is trained: 6.2M parameters</span></li>
-                  <li><b>0 / 80</b><span>hand-offs without the adapter: the stock control head never delegates</span></li>
                 </ul>
               </div>
               <div class="module__visual">
@@ -644,8 +645,8 @@
                 <h4>Typed judgments, not free text</h4>
                 <p>
                   Midway through game night the user says &ldquo;make it sixty dollars&rdquo;. The game is on its
-                  third version, the snack plan is running and the weather has just been played. Understanding the
-                  sentence needs a model; acting on it changes real tasks, so the model must never produce an
+                  third version, the snack plan has already been delivered and the answer to the Python follow-up has
+                  just been played. Understanding the sentence needs a model; acting on it changes real tasks, so the model must never produce an
                   operation the runtime cannot check.
                 </p>
                 <p>
@@ -680,15 +681,15 @@
                     <ul class="jev-bars">
                       <li style="--p: 0.04"><code>ANSWER</code><span class="jev-bars__desc">respond, use tools or ask</span><span class="jev-bars__track"><span></span></span><b>0.04</b></li>
                       <li style="--p: 0.01"><code>MEMORY</code><span class="jev-bars__desc">fetch a fact from an earlier session</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
-                      <li class="is-pick" style="--p: 0.91"><code>REFINE:T5:1</code><span class="jev-bars__desc">modify &ldquo;snack plan with the usual budget&rdquo; &middot; COMPLETED</span><span class="jev-bars__track"><span></span></span><b>0.91</b></li>
+                      <li class="is-pick" style="--p: 0.91"><code>REFINE:T5:1</code><span class="jev-bars__desc">modify &ldquo;snack plan with the usual budget&rdquo; &middot; DELIVERED</span><span class="jev-bars__track"><span></span></span><b>0.91</b></li>
                       <li style="--p: 0.01"><code>CANCEL:T5:1</code><span class="jev-bars__desc">cancel that task without replacement</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
-                      <li style="--p: 0.02"><code>REFINE:T2:3</code><span class="jev-bars__desc">modify &ldquo;two-player star game&rdquo; &middot; RUNNING</span><span class="jev-bars__track"><span></span></span><b>0.02</b></li>
+                      <li style="--p: 0.02"><code>REFINE:T2:3</code><span class="jev-bars__desc">modify &ldquo;two-player star game&rdquo; &middot; DELIVERED</span><span class="jev-bars__track"><span></span></span><b>0.02</b></li>
                       <li style="--p: 0.01"><code>STOP_SPEAKING</code><span class="jev-bars__desc">stop the voice, keep all work</span><span class="jev-bars__track"><span></span></span><b>0.01</b></li>
                     </ul>
                     <p class="jev-demo__note">
                       <b>p(REFINE:T5:1) &ge; 0.8</b>, so the runtime supersedes version 1 of the snack plan and starts
                       version 2 with the one-night budget. The game is not touched. Probabilities are illustrative,
-                      as in the report's Figure 4.
+                      as in the report's Figure 5.
                     </p>
                   </div>
                 </div>
@@ -716,46 +717,51 @@
                 </ul>
               </div>
               <div class="module__visual">
-                <svg class="ledger-svg" viewBox="0 0 520 270" role="img" aria-label="Life of a task: queued, running, completed, delivered, with branches to needs input, failed, cancelled and superseded. A superseded task starts a new version, and a late result for the old version is discarded.">
+                <svg class="ledger-svg" viewBox="0 0 520 260" role="img" aria-label="Life of a task: queued, running, completed, delivered, with branches to needs input, failed, cancelled and superseded. A queued or running task can be cancelled, a superseded task starts version v+1 of the same request, a late result for the old version is discarded, and only a full playback receipt turns completed into delivered.">
                   <defs>
-                    <marker id="lg-arr" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#5b6478" /></marker>
-                    <marker id="lg-arr-blue" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#3b7ddd" /></marker>
-                    <marker id="lg-arr-teal" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#14998a" /></marker>
+                    <marker id="lg-arr" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#797f87" /></marker>
+                    <marker id="lg-arr-blue" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#5d83c1" /></marker>
+                    <marker id="lg-arr-teal" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="4.2" markerHeight="4.2" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#107a6e" /></marker>
+                    <marker id="lg-arr-cancel" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#e17572" /></marker>
+                    <marker id="lg-arr-coral" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.5" markerHeight="6.5" orient="auto-start-reverse"><path d="M0 0 10 5 0 10z" fill="#d9534f" /></marker>
                   </defs>
                   <g class="lg-arrows" fill="none">
-                    <path d="M116 125H144" marker-end="url(#lg-arr)" />
-                    <path d="M250 125H278" marker-end="url(#lg-arr)" />
-                    <path class="lg-arrow--teal" d="M384 125H412" marker-end="url(#lg-arr-teal)" />
-                    <path d="M198 140V198" marker-end="url(#lg-arr)" />
-                    <path d="M198 110V56" marker-end="url(#lg-arr)" />
-                    <path d="M238 110 300 56" marker-end="url(#lg-arr)" />
-                    <path d="M332 110V56" marker-end="url(#lg-arr)" />
-                    <path d="M238 140 312 198" marker-end="url(#lg-arr)" />
-                    <path d="M250 215H298" marker-end="url(#lg-arr)" />
-                    <path d="M362 140V198" marker-end="url(#lg-arr)" />
-                    <path class="lg-arrow--blue" d="M352 230V256H64V142" marker-end="url(#lg-arr-blue)" />
-                    <path class="lg-arrow--coral" d="M404 215H414" />
+                    <path d="M86 131H140" marker-end="url(#lg-arr)" />
+                    <path d="M220 131H280" marker-end="url(#lg-arr)" />
+                    <path class="lg-arrow--teal" d="M366 131H425" marker-end="url(#lg-arr-teal)" />
+                    <path d="M181 146V185" marker-end="url(#lg-arr)" />
+                    <path d="M181 116V80" marker-end="url(#lg-arr)" />
+                    <path d="M220 116 280.3 79" marker-end="url(#lg-arr)" />
+                    <path d="M324 116V80" marker-end="url(#lg-arr)" />
+                    <path d="M220 146 300.2 186.1" marker-end="url(#lg-arr)" />
+                    <path d="M229 202H300" marker-end="url(#lg-arr)" />
+                    <path d="M324 146V185" marker-end="url(#lg-arr)" />
+                    <path class="lg-arrow--blue" d="M348 217V238H47V148" marker-end="url(#lg-arr-blue)" />
+                    <path class="lg-arrow--cancel" d="M47 116V24H324V46" marker-end="url(#lg-arr-cancel)" />
+                    <path class="lg-arrow--coral" d="M394 202H420" marker-end="url(#lg-arr-coral)" />
                   </g>
                   <g class="lg-labels">
-                    <text x="130" y="103" text-anchor="middle">slot free</text>
-                    <text x="264" y="103" text-anchor="middle">result</text>
-                    <text x="398" y="103" text-anchor="middle" class="lg-label--teal">receipt</text>
-                    <text x="204" y="174">asks user</text>
-                    <text x="204" y="88">error</text>
-                    <text x="262" y="80" class="lg-label--mono">CANCEL</text>
-                    <text x="254" y="186" class="lg-label--mono">REFINE</text>
-                    <text x="274" y="230" text-anchor="middle">answered</text>
-                    <text x="208" y="250" text-anchor="middle" class="lg-label--blue">new version v+1 of the same request</text>
+                    <text x="114" y="126" text-anchor="middle">slot free</text>
+                    <text x="251" y="126" text-anchor="middle">live result</text>
+                    <text x="396" y="114" text-anchor="middle">full playback</text>
+                    <text x="396" y="126" text-anchor="middle">receipt</text>
+                    <text x="176" y="170" text-anchor="end">asks user</text>
+                    <text x="176" y="101" text-anchor="end">error</text>
+                    <text x="254" y="104" class="lg-label--mono">CANCEL</text>
+                    <text x="258" y="160" class="lg-label--mono">REFINE</text>
+                    <text x="266" y="214" text-anchor="middle">answered</text>
+                    <text x="198" y="251" text-anchor="middle">new version <tspan class="lg-var">v</tspan>+1 of the same request</text>
+                    <text x="186" y="19" text-anchor="middle" class="lg-label--mono">CANCEL</text>
                   </g>
-                  <g class="lg-state lg-state--blue"><rect x="12" y="110" width="104" height="30" rx="15" /><text x="64" y="129.5" text-anchor="middle">QUEUED</text></g>
-                  <g class="lg-state lg-state--blue"><rect x="146" y="110" width="104" height="30" rx="15" /><text x="198" y="129.5" text-anchor="middle">RUNNING</text></g>
-                  <g class="lg-state lg-state--teal"><rect x="280" y="110" width="104" height="30" rx="15" /><text x="332" y="129.5" text-anchor="middle">COMPLETED</text></g>
-                  <g class="lg-state lg-state--done"><rect x="414" y="110" width="98" height="30" rx="15" /><text x="463" y="129.5" text-anchor="middle">DELIVERED</text></g>
-                  <g class="lg-state lg-state--amber"><rect x="146" y="200" width="104" height="30" rx="15" /><text x="198" y="219.5" text-anchor="middle">NEEDS_INPUT</text></g>
-                  <g class="lg-state lg-state--slate"><rect x="146" y="24" width="104" height="30" rx="15" /><text x="198" y="43.5" text-anchor="middle">FAILED</text></g>
-                  <g class="lg-state lg-state--slate"><rect x="280" y="24" width="104" height="30" rx="15" /><text x="332" y="43.5" text-anchor="middle">CANCELLED</text></g>
-                  <g class="lg-state lg-state--slate"><rect x="300" y="200" width="104" height="30" rx="15" /><text x="352" y="219.5" text-anchor="middle">SUPERSEDED</text></g>
-                  <g class="lg-note"><rect x="414" y="196" width="98" height="38" rx="8" /><text x="463" y="212" text-anchor="middle">late result for v</text><text x="463" y="226" text-anchor="middle">is discarded</text></g>
+                  <g class="lg-state lg-state--blue"><rect x="8" y="116" width="78" height="30" rx="10" /><text x="47" y="135.5" text-anchor="middle">QUEUED</text></g>
+                  <g class="lg-state lg-state--blue"><rect x="142" y="116" width="78" height="30" rx="10" /><text x="181" y="135.5" text-anchor="middle">RUNNING</text></g>
+                  <g class="lg-state lg-state--teal"><rect x="282" y="116" width="84" height="30" rx="10" /><text x="324" y="135.5" text-anchor="middle">COMPLETED</text></g>
+                  <g class="lg-state lg-state--teal lg-state--done"><rect x="427" y="116" width="82" height="30" rx="10" /><text x="468" y="135.5" text-anchor="middle">DELIVERED</text></g>
+                  <g class="lg-state lg-state--amber"><rect x="133" y="187" width="96" height="30" rx="10" /><text x="181" y="206.5" text-anchor="middle">NEEDS_INPUT</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="142" y="48" width="78" height="30" rx="10" /><text x="181" y="67.5" text-anchor="middle">FAILED</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="282" y="48" width="84" height="30" rx="10" /><text x="324" y="67.5" text-anchor="middle">CANCELLED</text></g>
+                  <g class="lg-state lg-state--slate"><rect x="302" y="187" width="92" height="30" rx="10" /><text x="348" y="206.5" text-anchor="middle">SUPERSEDED</text></g>
+                  <g class="lg-note"><rect x="422" y="185" width="92" height="34" rx="3" /><text x="468" y="199" text-anchor="middle">late result for <tspan class="lg-var">v</tspan></text><text x="468" y="212" text-anchor="middle">is discarded</text></g>
                 </svg>
               </div>
             </div>
@@ -877,7 +883,7 @@
             </ul>
             <ol class="utterances" id="utterances"></ol>
             <figcaption>
-              <strong>Figure 1 of the report, made interactive.</strong> The game goes through four versions, the
+              <strong>Figure 2 of the report, made interactive.</strong> The game goes through four versions, the
               Python question gets a follow-up, a one-night budget of $60 leaves the usual $40 in memory untouched,
               and the cancellation removes the welcome sign and nothing else. Timeline times are seconds into the
               session the figure was drawn from; the Game night video is a recording of the same script, so each
@@ -939,7 +945,7 @@
                     <tr><th>Airline</th><th>Retail</th><th>Telecom</th><th>Total</th><th>Exact</th><th>Semantic</th><th>Task score</th></tr>
                   </thead>
                   <tbody>
-                    <tr><td rowspan="3">Venus-Audio</td><td class="key">Native harness</td><td>17&dagger;</td><td>6&dagger;</td><td>0&dagger;</td><td>23&dagger;</td><td>0</td><td>0</td><td>3.09</td></tr>
+                    <tr><td rowspan="3">Venus-Audio</td><td class="key">Native harness</td><td>17</td><td>6</td><td>0</td><td>23</td><td>0</td><td>0</td><td>3.09</td></tr>
                     <tr><td class="key">QAA</td><td>23</td><td>6</td><td>0</td><td>29</td><td>41</td><td>59</td><td>2.57</td></tr>
                     <tr class="is-ours"><td class="key">Jarvis</td><td>35</td><td>77</td><td>75</td><td>187</td><td>51</td><td>63</td><td>3.36</td></tr>
                     <tr class="group-start"><td rowspan="2">MiniCPM-o 4.5</td><td class="key">QAA</td><td>23</td><td>6</td><td>0</td><td>29</td><td>40</td><td>56</td><td>2.98</td></tr>
@@ -948,15 +954,14 @@
                     <tr class="is-ours"><td class="key">Jarvis</td><td>23</td><td>6</td><td>4</td><td>33</td><td>34</td><td>50</td><td>2.84</td></tr>
                     <tr class="group-label"><td colspan="9">Other full-duplex systems with their own runtimes</td></tr>
                     <tr><td>MoshiRAG</td><td class="key">Native retrieval</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>0</td><td>3.08</td></tr>
-                    <tr><td>Gander</td><td class="key">Native runtime&Dagger;</td><td>23</td><td>6</td><td>0</td><td>29</td><td>5</td><td>6</td><td>3.16</td></tr>
+                    <tr><td>Gander</td><td class="key">Native runtime&dagger;</td><td>23</td><td>6</td><td>0</td><td>29</td><td>5</td><td>6</td><td>3.16</td></tr>
                   </tbody>
                 </table>
               </div>
               <p class="table-note">
                 <span class="nocaps">&tau;</span>-Voice reports solved tasks out of 278, FDB-v3 passes out of 100 under exact and
                 semantic matching, and FDB-v2 the mean task score over 300 task and pace pairs. All rows share one
-                judge. &dagger;Earlier protocol, counted over the 42, 111 and 104 episodes that completed.
-                &Dagger;Released runtime with a DeepSeek-V4-Flash worker in place of its Codex back end.
+                judge. &dagger;Released runtime with a DeepSeek-V4-Flash worker in place of its Codex back end.
               </p>
             </details>
           </article>
@@ -1182,11 +1187,11 @@
             </div>
             <div class="omni-stat reveal" style="--reveal-delay: 180ms">
               <b>5.05 <small>&rarr;</small> 1.78 s</b>
-              <span>median time to the first spoken acknowledgment in paired live sessions, once the scene-aware gate is in place.</span>
+              <span>median time to the first spoken response in live sessions on the same user recordings, once the new scene-aware gate is in place.</span>
             </div>
             <div class="omni-stat reveal" style="--reveal-delay: 240ms">
               <b>&asymp;2.2 s</b>
-              <span>from the end of a tactical question to the start of the answer on the fast path (2.15 s in CS2, 2.23 s in LoL), never from a frame older than 3.5 s.</span>
+              <span>from the end of a tactical question to the start of the answer on the fast path (2.15 s in CS2, 2.23 s in LoL).</span>
             </div>
           </div>
 
@@ -1202,7 +1207,7 @@
                 <div class="hbar hbar--ours" style="--w: 25%"><span>with screen</span><i></i><b>25.0%</b></div>
                 <div class="hbar hbar--base" style="--w: 2.5%"><span>without</span><i></i><b>2.5%</b></div>
               </div>
-              <p class="omni-panel__foot">Silent controls stay silent either way: 60 / 60 and 24 / 24. An audit of 787 model inputs found no frame from the future of its decision.</p>
+              <p class="omni-panel__foot">Silent controls stay silent either way: 60 / 60 and 24 / 24.</p>
             </section>
             <section class="omni-panel reveal" style="--reveal-delay: 80ms" aria-labelledby="omni-fresh-title">
               <h3 id="omni-fresh-title">Expired evidence stays off the speaker</h3>
@@ -1226,7 +1231,7 @@
                 <div class="stack__row stack__row--ours"><span>Contextual GRPO adapter</span><div class="stack__bar"><i class="ok" style="--w: 78.1%"></i><i class="miss" style="--w: 1.04%"></i><i class="other" style="--w: 20.8%"></i></div><b>75</b></div>
               </div>
               <p class="stack__legend"><span><i class="ok"></i>correct</span><span><i class="miss"></i>missed action</span><span><i class="other"></i>acted early or in the wrong branch</span></p>
-              <p class="omni-panel__foot">In paired live sessions, requests whose first answer never reached the speaker fall from 7 to 2 out of 18.</p>
+              <p class="omni-panel__foot">In live sessions on the same user recordings, all 18 replies are heard with the new adapter, against 13 with the previous one.</p>
             </section>
           </div>
 
@@ -1240,7 +1245,7 @@
                 <tbody>
                   <tr><td>Front model</td><td>Realtime-Venus-Audio, 9B</td><td>Venus-Omni</td></tr>
                   <tr><td>Native Gate</td><td>Causal audio prefixes, three actions</td><td>Causal audio and screen features with dialogue context, plus a SCENE action for proactive turns</td></tr>
-                  <tr><td>Decision brain</td><td>JEV, text</td><td>JEV-Omni, 12B, text and images</td></tr>
+                  <tr><td>Decision brain</td><td>JEV, text</td><td>Jev-Omni, 12B, text and images</td></tr>
                   <tr><td>Perception state</td><td>ASR observer</td><td>ASR observer, Evidence Timeline and Belief State</td></tr>
                   <tr><td>Memory</td><td>Profile and task records</td><td>Adds in-match events and game knowledge</td></tr>
                   <tr class="group-label"><td colspan="3">Shared: JEV controller, Task Ledger, workers, Delivery and playback control</td></tr>

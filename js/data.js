@@ -53,7 +53,7 @@ export const DEMOS = [
     duration: 313.6,
     tagline: "Four background tasks, four versions of a game, and a one-night budget that never overwrites the usual one.",
     summary:
-      "The game-night script of Figure 1 in the report, recorded end to end. The user saves a few defaults, then asks for a game, the weather and two headlines at once, and keeps talking while the work runs. The game is refined as it is built, a Python question gets a follow-up, and \u201cfor tonight only, sixty dollars\u201d changes the snack plan without touching the usual forty in memory. A new session at the end still knows both defaults.",
+      "The game-night script of Figure 2 in the report, recorded end to end. The user saves a few defaults, then asks for a game, the weather and two headlines at once, and keeps talking while the work runs. The game is refined as it is built, a Python question gets a follow-up, and \u201cfor tonight only, sixty dollars\u201d changes the snack plan without touching the usual forty in memory. A new session at the end still knows both defaults.",
     watch: [
       "Every card in the task panel carries its version. The game ends at v4, the snack plan at v2.",
       "\u201cFor tonight only, sixty dollars is fine. Keep forty as my usual limit.\u201d One sentence, two destinations: the task gets $60, memory keeps $40.",
@@ -209,7 +209,7 @@ export const DEMOS = [
   },
 ];
 
-/* Figure 1 of the report: the game-night session on the Task Ledger.
+/* Figure 2 of the report: the game-night session on the Task Ledger.
  * Times are seconds into the recorded session the figure was drawn from. The
  * English demo follows the same script in a separate recording, so `seek`
  * holds where each utterance starts in that video. */

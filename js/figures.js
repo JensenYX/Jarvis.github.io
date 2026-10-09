@@ -1,5 +1,5 @@
 /* Explanatory figures: the module tabs and their small visuals, the gate
- * policy plot, the game-night timeline of Figure 1 and the evidence-expiry
+ * policy plot, the game-night timeline of Figure 2 and the evidence-expiry
  * animation of Jarvis-Omni. Everything is plain SVG built from data.js or
  * from the numbers printed in the report's figures. */
 
@@ -58,7 +58,7 @@ function onFirstView(element, callback, threshold = 0.35) {
 
 /* ------------------------------------------------------------- gate plot */
 
-// Schematic curves of the report's Figure 3a, in (audio unit, probability).
+// Schematic curves of the report's Figure 4a, in (audio unit, probability).
 const GATE_CURVES = {
   listen: [[0.5, 0.97], [1.5, 0.96], [2.5, 0.93], [3.5, 0.9], [4.5, 0.86], [5.3, 0.15], [6.5, 0.05], [7.5, 0.04]],
   direct: [[0.5, 0.02], [1.5, 0.03], [2.5, 0.05], [3.5, 0.07], [4.5, 0.08], [5.3, 0.06], [6.5, 0.05], [7.5, 0.05]],
