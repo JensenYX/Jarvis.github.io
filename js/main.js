@@ -127,6 +127,21 @@ export function observeCounters(root = document) {
   counters.forEach((el) => observer.observe(el));
 }
 
+/* ---------------------------------------------------------- visitor map */
+
+// Requested only once the page has loaded, so a slow or blocked widget server
+// never holds the page up. The widget finds its script by this id and draws
+// right after it.
+function loadVisitorMap() {
+  const slot = document.querySelector(".visitors__map[data-src]");
+  if (!slot) return;
+  const script = document.createElement("script");
+  script.id = "mapmyvisitors";
+  script.async = true;
+  script.src = slot.dataset.src;
+  slot.appendChild(script);
+}
+
 /* ---------------------------------------------------------------- setup */
 
 async function mount(name, loader) {
@@ -155,3 +170,6 @@ if (document.readyState === "loading") {
 } else {
   init();
 }
+
+if (document.readyState === "complete") loadVisitorMap();
+else window.addEventListener("load", loadVisitorMap, { once: true });
